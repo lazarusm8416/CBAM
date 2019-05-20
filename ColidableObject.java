@@ -1,1 +1,5 @@
-a
+
+
+public abstract class ColidableObject {
+
+}
