@@ -1,2 +1,2 @@
-s
-
+public class World{
+}
