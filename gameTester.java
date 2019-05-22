@@ -8,7 +8,7 @@ public class gameTester {
     }
  
     @Test
-    public void whenCanSendAndReceivePacket_thenCorrect() {
+    public void test() {
     }
  
     @After
