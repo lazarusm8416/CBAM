@@ -37,7 +37,26 @@ public class Player extends ColidableObject{
 	int g = (int)(Math.random()*255);
 	return new Color(r,g,b);
   }
+  public void bounce(String dir){
+	for (int i =0; i<10; i++){
+		move(dir);
+	}
+  }
+  public void bump(Player p){
+	if (getY()==p.getY()+p.getH()){ //this top bounce
+		if ( (getX() > p.getX() && getX() < p.getX()+p.getW()) || (getX()+getW() > p.getX() && getX()+getW() < p.getX()+p.getW()) ){
+			bounce("down");
+			p.bounce("up");
+		}
+	}
 
+	if (getX()==p.getX()+p.getW()){ // this left bounce
+		if ( (getY() > p.getY() && getY() < p.getY()+p.getH()) || (getY()+getH() > p.getY() && getY()+getH() < p.getY()+p.getH()) ){
+			bounce("left");
+			p.bounce("right");
+		}
+	}
+  }
   public void move (String dir){
 	if (dir.equals("up"))
 		setY(getY()-speed);
