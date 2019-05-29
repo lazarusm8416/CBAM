@@ -2,28 +2,71 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Canvas;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.awt.event.ActionListener;
 
 
 public class World extends Canvas implements KeyListener, Runnable{
   
   private ArrayList<Player> players;
   private boolean[] keys;
+  private Car car;
+  private BufferedImage back;
 
-  public World(){
+  public World()
+  {
 	keys = new boolean[4];
+	car = new Car(100,100, 3, Color.MAGENTA);
+	this.addKeyListener(this);
+    new Thread(this).start();
   }
 
+  public void update(Graphics window)
+  {
+	  paint(window);
+  }
 
-
-
-
-
-
+  public void paint(Graphics window)
+  {
+	  Graphics2D twoDGraph = (Graphics2D)window;
+	  if(back==null)
+	  {
+		 back = (BufferedImage)(createImage(getWidth(),getHeight()));
+	  }      
+	  Graphics graphToBack = back.createGraphics();
+	  
+	  graphToBack.setColor(Color.WHITE);
+	  graphToBack.fillRect(0,0,1000,700);
+	  car.draw(graphToBack);
+	  
+	  if(keys[0])
+	  {
+		  car.move("left");
+		  car.draw(graphToBack);
+	  }
+	  
+	  if(keys[1])
+	  {
+		  car.move("right");
+		  car.draw(graphToBack);
+	  }
+	  
+	  if(keys[2])
+	  {
+		  car.move("up");
+		  car.draw(graphToBack);
+	  }
+	  
+	  if(keys[3])
+	  {
+		  car.move("down");
+		  car.draw(graphToBack);
+	  }
+	  
+	  twoDGraph.drawImage(back, null, 0, 0);
+  }
 
   public void keyPressed(KeyEvent e){
 
