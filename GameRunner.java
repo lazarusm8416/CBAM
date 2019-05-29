@@ -18,13 +18,13 @@ public class GameRunner extends JFrame implements Runnable {
 
 
   public GameRunner() {
-    super("Terraria Java");
+    super("CBAM Java");
     setSize(WIDTH, HEIGHT);
 
     JTextArea textArea = new JTextArea();
-    //TerrariaGame TGame = new TerrariaGame();
-    //((Component)TGame).setFocusable(true);
-    //Thread world = new Thread(TGame);
+    //CBAMGame Game = new CBAMGame();
+    //((Component)Game).setFocusable(true);
+    //Thread world = new Thread(Game);
     //world.start();
 
     getContentPane().add(textArea);
