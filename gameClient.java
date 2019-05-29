@@ -3,7 +3,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-//rererere
+//hello
 
 public class gameClient {
     private DatagramSocket socket;
