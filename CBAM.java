@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.io.IOException;
 import java.awt.Color;
 import java.awt.Component;
@@ -26,4 +27,10 @@ public class CBAM extends JFrame
 	{
 		CBAM test = new CBAM();
 	}
+=======
+public class CBAM{
+  
+  //every update sends to and receives from server
+  
+>>>>>>> branch 'master' of https://github.com/lazarusm8416/CBAM.git
 }
