@@ -22,10 +22,7 @@ public class UserClient implements Runnable {
 		while (!(window instanceof Graphics)) {
 			return;
 		}
-		URL url = getClass().getResource("playerRight.png");
-		if (direction.equals("RIGHT")) {
-			url = getClass().getResource("playerLeft.png");
-		}
+		URL url = getClass().getResource("player.png");
 		Image image = null;
 		try {
 			image = ImageIO.read(url);
