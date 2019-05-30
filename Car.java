@@ -41,7 +41,7 @@ public class Car extends ColidableObject
 			setY(getY() + speed);
 		}
 	}
-	
+	//hello
 	public void draw(Graphics window)
 	{
 		window.setColor(color);
