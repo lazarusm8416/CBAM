@@ -27,7 +27,8 @@ public class UserClient implements Runnable {
 			e.printStackTrace();
 		}
 		if (!this.name.equals(name)) {
-			Car.draw(window, x, y);
+			window.setColor(Color.BLACK);
+			window.fillRect(x, y, 50, 50);
 		}
 	}
 
