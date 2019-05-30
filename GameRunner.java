@@ -32,17 +32,17 @@ public class GameRunner extends JFrame implements Runnable {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(WIDTH,HEIGHT);
 
-    Game theGame = new Game(WIDTH, HEIGHT);
-    ((Component)theGame).setFocusable(true);
+    World theWorld = new World(WIDTH, HEIGHT);
+    ((Component)theWorld).setFocusable(true);
 
-    getContentPane().add(theGame);
+    getContentPane().add(theWorld);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setVisible(true);
 
     /*Thread t = new Thread(this);
     t.start();*/
     client = new UserClient();
-    theGame.setClient(client);
+    theWorld.setClient(client);
 
   }
 
