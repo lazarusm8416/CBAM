@@ -13,7 +13,9 @@ public class Car extends ColidableObject
 	private Color color;
 	private int speed;
 	private UserClient client;
+	private Image image;
 	
+	//still kept the methods with the colors
 	public Car(int x, int y, int s, Color c)
 	{
 		super(x,y);
@@ -33,6 +35,33 @@ public class Car extends ColidableObject
 		color = c;
 		this.client = client;
 		try{
+    		}
+    		catch(Exception e){
+    		}
+	}
+	
+	public Car(int x, int y, int s)
+	{
+		super(x,y);
+		speed = s;
+		//color = c;
+		//this.client = client;
+		try{
+			URL url = getClass().getResource("car.jpg");
+		    image = ImageIO.read(url);
+    		}
+    		catch(Exception e){
+    		}
+	}
+	public Car(int x, int y, int w, int h, int s)
+	{
+		super(x,y, w,h);
+		speed = s;
+		//color = c;
+		//this.client = client;
+		try{
+			URL url = getClass().getResource("car.jpg");
+		    image = ImageIO.read(url);
     		}
     		catch(Exception e){
     		}
@@ -64,11 +93,18 @@ public class Car extends ColidableObject
 			setY(getY() + speed);
 		}
 	}
+	/*
 	public void draw(Graphics window)
 	{
 		window.setColor(color);
 		window.fillRect(getX(), getY(), getW(), getH());
 	}
+	*/
+	public void draw( Graphics window )
+	  {
+	    window.drawImage(image,getX(),getY(),getW(),getH(),null);
+	  }
+	/*
 	public void draw(Graphics window, int x, int y)
 	{
 		setX(x);
@@ -76,4 +112,5 @@ public class Car extends ColidableObject
 		window.setColor(color);
 		window.fillRect(getX(), getY(), getW(), getH());
 	}
+	*/
 }

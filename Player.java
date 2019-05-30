@@ -5,6 +5,7 @@ public class Player extends ColidableObject{
 
   private int speed;
   private Color color;
+  
   public Player(){
 	this(0,0,10,10,5);
   }
@@ -67,10 +68,13 @@ public class Player extends ColidableObject{
 	if (dir.equals("right"))
 		setX(getX()+speed);
   }
+  /*
   public void draw (Graphics window){
 	window.setColor(color);
 	window.drawRect(getX(),getY(),getW(),getH());
   }
+  */
+  
   public String toString(){
 	return super.toString() + " " + speed + " " + color;
   }

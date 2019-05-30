@@ -18,7 +18,8 @@ public class World extends Canvas implements KeyListener, Runnable{
   public World()
   {
 	keys = new boolean[4];
-	car = new Car(100,100, 3, Color.MAGENTA);
+	//car = new Car(100,100, 3, Color.MAGENTA);
+	car = new Car(100,100,50,35,3);
 	this.addKeyListener(this);
     new Thread(this).start();
   }
