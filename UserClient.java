@@ -28,7 +28,7 @@ public class UserClient implements Runnable {
 		}
 		if (!this.name.equals(name)) {
 			window.setColor(Color.BLACK);
-			window.fillRect(x, y, 50, 50);
+			window.fillRect(x, y, 10, 10);
 		}
 	}
 
