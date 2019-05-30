@@ -22,18 +22,13 @@ public class UserClient implements Runnable {
 		while (!(window instanceof Graphics)) {
 			return;
 		}
-		URL url = getClass().getResource("playerRight.png");
-		if (direction.equals("RIGHT")) {
-			url = getClass().getResource("playerLeft.png");
-		}
-		Image image = null;
 		try {
-			image = ImageIO.read(url);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		if (!this.name.equals(name)) {
-			window.drawImage(image, x, y, 50, 50, null);
+			window.setColor(Color.BLACK);
+			window.fillRect(x, y, 10, 10);
 		}
 	}
 
