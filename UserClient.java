@@ -22,15 +22,12 @@ public class UserClient implements Runnable {
 		while (!(window instanceof Graphics)) {
 			return;
 		}
-		URL url = getClass().getResource("player.png");
-		Image image = null;
 		try {
-			image = ImageIO.read(url);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		if (!this.name.equals(name)) {
-			window.drawImage(image, x, y, 50, 50, null);
+			car.draw();
 		}
 	}
 
