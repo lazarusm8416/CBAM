@@ -5,6 +5,7 @@ public class Car extends ColidableObject
 {
 	private Color color;
 	private int speed;
+	private UserClient client;
 	
 	public Car(int x, int y, int s, Color c)
 	{
@@ -18,6 +19,21 @@ public class Car extends ColidableObject
 		super(x,y,w,h);
 		color = c;
 	}
+	public Car(int x, int y, int w, int h, int s, Color c, UserClient client)
+	{
+		super(x,y,w,h);
+		speed = s;
+		color = c;
+		this.client = client;
+		try{
+    		}
+    		catch(Exception e){
+    		}
+	}
+	
+	public void setClient(UserClient client) {
+    		this.client = client;
+  	}
 	
 	public void move(String d)
 	{
