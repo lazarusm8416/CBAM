@@ -46,4 +46,11 @@ public class Car extends ColidableObject
 		window.setColor(color);
 		window.fillRect(getX(), getY(), getW(), getH());
 	}
+	public void draw(Graphics window, int x, int y)
+	{
+		setX(x);
+		setY(y);
+		window.setColor(color);
+		window.fillRect(getX(), getY(), getW(), getH());
+	}
 }
