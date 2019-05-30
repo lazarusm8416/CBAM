@@ -28,18 +28,14 @@ public class Car extends ColidableObject
 		super(x,y,w,h);
 		color = c;
 	}
-	public Car(int x, int y, int w, int h, int s, Color c, UserClient client)
+	public Car(int x, int y, int w, int h, int s, Color c)
 	{
 		super(x,y,w,h);
 		speed = s;
 		color = c;
-		this.client = client;
-		try{
-    		}
-    		catch(Exception e){
-    		}
 	}
 	
+//<<<<<<< HEAD
 	public Car(int x, int y, int s)
 	{
 		super(x,y);
@@ -99,9 +95,9 @@ public class Car extends ColidableObject
 		window.setColor(color);
 		window.fillRect(getX(), getY(), getW(), getH());
 	}
+	
 	*/
-	public void draw( Graphics window )
-	  {
+	public void draw( Graphics window ){
 	    window.drawImage(image,getX(),getY(),getW(),getH(),null);
 	  }
 	/*

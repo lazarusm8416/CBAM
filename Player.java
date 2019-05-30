@@ -5,7 +5,8 @@ public class Player extends ColidableObject{
 
   private int speed;
   private Color color;
-  
+  private UserClient client;
+	
   public Player(){
 	this(0,0,10,10,5);
   }
@@ -27,7 +28,11 @@ public class Player extends ColidableObject{
   public void setS(int s){
 	speed = s;
   }
-
+	
+  public void setClient(UserClient client) {
+    this.client = client;
+  }
+	
   public int getS(){
 	return speed;
   }
