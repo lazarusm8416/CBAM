@@ -13,6 +13,7 @@ public class UserClient implements Runnable {
 	private PrintWriter output;
 	private String name;
 	private Graphics window;
+	private Car car;
 
 	public Graphics getWindow() {
 		return window;
@@ -27,12 +28,14 @@ public class UserClient implements Runnable {
 			e.printStackTrace();
 		}
 		if (!this.name.equals(name)) {
-			window.setColor(Color.BLACK);
-			window.fillRect(x, y, 10, 10);
+			car.setX(x);
+			car.setY(y);
+			car.draw(window);
 		}
 	}
 
 	public UserClient() {
+		car = new Car(0,0,10,10,5,Color.BLACK);
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Enter a Hostname Address: ");
 		String hostname = keyboard.nextLine();
