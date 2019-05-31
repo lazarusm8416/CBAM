@@ -1,28 +1,57 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
 
 public class Player extends ColidableObject{
 
   private int speed;
   private Color color;
   private UserClient client;
+  private Image image;
 	
   public Player(){
 	this(0,0,10,10,5);
+	try{
+		URL url = getClass().getResource("car.jpg");
+	    image = ImageIO.read(url);
+		}
+		catch(Exception e){
+		}
   }
 
   public Player (int x, int y){
 	this (x,y,10,10,5);
+	try{
+		URL url = getClass().getResource("car.jpg");
+	    image = ImageIO.read(url);
+		}
+		catch(Exception e){
+		}
   }
 
   public Player (int x, int y, int s){
 	this (x,y,10,10,s);
+	try{
+		URL url = getClass().getResource("car.jpg");
+	    image = ImageIO.read(url);
+		}
+		catch(Exception e){
+		}
   }
   
   public Player(int x, int y, int w, int h, int s){
 	super(x,y,w,h);
 	speed=s;
 	color = rColor();
+	try{
+		URL url = getClass().getResource("car.jpg");
+	    image = ImageIO.read(url);
+		}
+		catch(Exception e){
+		}
   }
 
   public void setS(int s){
@@ -76,7 +105,7 @@ public class Player extends ColidableObject{
   
   public void draw (Graphics window){
 	window.setColor(color);
-	window.fillRect(getX(),getY(),getW(),getH());
+	window.drawImage(image,getX(),getY(),getW(),getH(),null);
   }
   
   
