@@ -47,9 +47,7 @@ public class UserClient implements Runnable {
 				if (pl.getName().equals(name)) {
 					pl.setX(x);
 					pl.setY(y);
-					if (go) {
-						pl.setImage(image);
-					}
+					pl.setImage(image);
 				}
 			}
 		}
