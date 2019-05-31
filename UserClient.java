@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class UserClient implements Runnable {
 
@@ -13,29 +15,57 @@ public class UserClient implements Runnable {
 	private PrintWriter output;
 	private String name;
 	private Graphics window;
-	private Player player;
+	private List<DrawPlayer> players;
 
 	public Graphics getWindow() {
 		return window;
+	}
+
+	public void draw() {
+		for (DrawPlayer pl : players) {
+			if (pl.getImage() instanceof Image) {
+				window.drawImage(pl.getImage(), pl.getX(), pl.getY(), 50, 50, null);
+			}
+		}
 	}
 
 	public void draw(Graphics window, String direction, int x, int y, String name) {
 		while (!(window instanceof Graphics)) {
 			return;
 		}
-		try {
-		} catch (Exception e) {
-			e.printStackTrace();
+		URL url = getClass().getResource("playerRight.png");
+		boolean go = false;
+		if (direction.equals("RIGHT")) {
+			url = getClass().getResource("playerRight.png");
+			go = true;
+		} else if (direction.equals("LEFT")) {
+			url = getClass().getResource("playerLeft.png");
+			go = true;
+		}
+		Image image = null;
+		if (go) {
+			try {
+				image = ImageIO.read(url);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		if (!this.name.equals(name)) {
-			player.setX(x);
-			player.setY(y);
-			player.draw(window);
+			//window.drawImage(image, x, y, 50, 50, null);
+			for (DrawPlayer pl : players) {
+				if (pl.getName().equals(name)) {
+					pl.setX(x);
+					pl.setY(y);
+					if (go) {
+						pl.setImage(image);
+					}
+				}
+			}
 		}
 	}
 
 	public UserClient() {
-		player = new Player(0,0,10,10,5);
+		players = new ArrayList<DrawPlayer>();
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Enter a Hostname Address: ");
 		String hostname = keyboard.nextLine();
@@ -51,16 +81,16 @@ public class UserClient implements Runnable {
 			//Scanner input = new Scanner(socket.getInputStream());
 			//System.out.println("Server: " + input.nextLine());
 			output = new PrintWriter(socket.getOutputStream(), true);
-			broadcastMessage(name, " joined the game!");
 			//Scanner sockscan = new Scanner(socket.getInputStream());
 			//Thread t = new Thread(new UserClient(hostname));
 			Thread t = new Thread(this);
 			t.start();
 			//while (true) {
 				//BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-				if (keyboard.hasNextLine()) {
+				broadcastMessage(name + " joined the game!");
+				/*if (keyboard.hasNextLine()) {
 					broadcastMessage(name, keyboard.nextLine());
-				}
+				}*/
 				// fix printing multiples, and print overlapping from multiples issue
 				/*while (reader.ready()) {
 					System.out.println(sockscan.nextLine());
@@ -138,6 +168,39 @@ public class UserClient implements Runnable {
 						int x = Integer.valueOf(position.split(",")[1]);
 						int y = Integer.valueOf(position.split(",")[2]);
 						String direction = String.valueOf(position.split(",")[3]);
+
+						boolean has = false;
+						for (DrawPlayer pl : players) {
+							URL url = getClass().getResource("playerRight.png");
+							boolean go = false;
+							if (direction.equals("RIGHT")) {
+								url = getClass().getResource("playerRight.png");
+								go = true;
+							} else if (direction.equals("LEFT")) {
+								url = getClass().getResource("playerLeft.png");
+								go = true;
+							}
+							Image image = null;
+							if (go) {
+								try {
+									image = ImageIO.read(url);
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
+							}
+							if (pl.getName().equals(name)) {
+								has = true;
+								if (go) {
+									pl.setImage(image);
+								}
+							}
+						}
+
+						if (!has && !getName().equals(name)) {
+							players.add(new DrawPlayer(x, y, name));
+						}
+
+
 						this.draw(window, direction, x, y, name);
 					} else {
 						System.out.println(s);
