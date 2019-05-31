@@ -15,6 +15,12 @@ public class World extends Canvas implements KeyListener, Runnable
   private Player player;
   private Wall leftWall, rightWall, topWall, botWall;
   private BufferedImage back;
+  private UserClient client;
+  
+  public void setClient(UserClient c) {
+    System.out.println("CLIENT SET");
+    client = c;
+  }
 
   public World()
   {
@@ -76,6 +82,7 @@ public class World extends Canvas implements KeyListener, Runnable
 		  player.draw(graphToBack);
 	  }
 	  
+	  client.draw();
 	  twoDGraph.drawImage(back, null, 0, 0);
   }
 
