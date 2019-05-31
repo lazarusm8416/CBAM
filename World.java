@@ -82,6 +82,13 @@ public class World extends Canvas implements KeyListener, Runnable
 		  player.draw(graphToBack);
 	  }
 	  
+	if (!(keys[0]||keys[1]||keys[2]||keys[3])){
+	
+		player.decel();
+		player.draw(graphToBack);
+	}
+
+	
 	  client.draw();
 	  twoDGraph.drawImage(back, null, 0, 0);
   }
