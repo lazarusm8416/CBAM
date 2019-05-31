@@ -66,11 +66,46 @@ public abstract class ColidableObject
 	return height;
   }
   
-  public boolean didCollide(ColidableObject o)
+  public boolean didCollideLeft(ColidableObject o)
   {
-	  return true;
+	  if(xPos <= o.xPos + o.width)
+	  {
+		  return true;
+	  }
+	  
+	  return false;
   }
-
+  
+  public boolean didCollideRight(ColidableObject o)
+  {
+	  if(xPos + width >= o.xPos)
+	  {
+		  return true;
+	  }
+	  
+	  return false;
+  }
+  
+  public boolean didCollideTop(ColidableObject o)
+  {
+	  if(yPos <= o.yPos + o.height)
+	  {
+		  return true;
+	  }
+	  
+	  return false;
+  }
+  
+  public boolean didCollideBot(ColidableObject o)
+  {
+	  if(yPos + height >= o.yPos)
+	  {
+		  return true;
+	  }
+	  
+	  return false;
+  }
+  
   public String toString()
   {
 	return xPos+ " " +yPos + " " + width + " " + height;

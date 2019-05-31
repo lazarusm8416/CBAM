@@ -13,9 +13,10 @@ public class Car extends ColidableObject
 		color = c;
 	}
 	
-	public Car(int x, int y, int w, int h, Color c)
+	public Car(int x, int y, int w, int h, int s, Color c)
 	{
 		super(x,y,w,h);
+		speed = s;
 		color = c;
 	}
 	

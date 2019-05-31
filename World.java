@@ -8,17 +8,22 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 
-public class World extends Canvas implements KeyListener, Runnable{
-  
+public class World extends Canvas implements KeyListener, Runnable
+{
   private ArrayList<Player> players;
   private boolean[] keys;
-  private Car car;
+  private Player player;
+  private Wall leftWall, rightWall, topWall, botWall;
   private BufferedImage back;
 
   public World()
   {
 	keys = new boolean[4];
-	car = new Car(100,100, 3, Color.MAGENTA);
+	player = new Player(100,100, 20, 30, 3);
+	leftWall = new Wall(0,0,10,700);
+	rightWall = new Wall(990,0,10,700);
+	topWall = new Wall(0,0,1000,10);
+	botWall = new Wall(0,670,1000,10);
 	this.addKeyListener(this);
     new Thread(this).start();
   }
@@ -39,37 +44,43 @@ public class World extends Canvas implements KeyListener, Runnable{
 	  
 	  graphToBack.setColor(Color.WHITE);
 	  graphToBack.fillRect(0,0,1000,700);
-	  car.draw(graphToBack);
+	  player.draw(graphToBack);
+	  leftWall.draw(graphToBack);
+	  rightWall.draw(graphToBack);
+	  topWall.draw(graphToBack);
+	  botWall.draw(graphToBack);
 	  
-	  if(keys[0])
+	  if(keys[0] && !player.didCollideLeft(leftWall))
 	  {
-		  car.move("left");
-		  car.draw(graphToBack);
+		  player.move("left");
+		  player.draw(graphToBack);
 	  }
 	  
-	  if(keys[1])
+	  if(keys[1] && !player.didCollideRight(rightWall))
 	  {
-		  car.move("right");
-		  car.draw(graphToBack);
+		  player.move("right");
+		  player.draw(graphToBack);
 	  }
 	  
-	  if(keys[2])
+	  if(keys[2] && !player.didCollideTop(topWall))
 	  {
-		  car.move("up");
-		  car.draw(graphToBack);
+		  player.move("up");
+		  player.draw(graphToBack);
 	  }
 	  
-	  if(keys[3])
+	  //System.out.println("left " + player.didCollideLeft(leftWall));
+	  
+	  if(keys[3] && !player.didCollideBot(botWall))
 	  {
-		  car.move("down");
-		  car.draw(graphToBack);
+		  player.move("down");
+		  player.draw(graphToBack);
 	  }
 	  
 	  twoDGraph.drawImage(back, null, 0, 0);
   }
 
-  public void keyPressed(KeyEvent e){
-
+  public void keyPressed(KeyEvent e)
+  {
 
     if (e.getKeyCode() == KeyEvent.VK_LEFT)
     {

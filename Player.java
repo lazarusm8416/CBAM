@@ -69,7 +69,7 @@ public class Player extends ColidableObject{
   }
   public void draw (Graphics window){
 	window.setColor(color);
-	window.drawRect(getX(),getY(),getW(),getH());
+	window.fillRect(getX(),getY(),getW(),getH());
   }
   public String toString(){
 	return super.toString() + " " + speed + " " + color;
