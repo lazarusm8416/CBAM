@@ -4,7 +4,7 @@ public class DrawPlayer {
 
     private int x;
     private int y;
-    private Image image;
+    private Player player;
     private String name;
 
     public DrawPlayer(int x, int y, String name) {
