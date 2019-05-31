@@ -33,7 +33,7 @@ public class UserClient implements Runnable {
 		while (!(window instanceof Graphics)) {
 			return;
 		}
-		URL url = getClass().getResource("car.png");
+		URL url = getClass().getResource("car.jpg");
 		Image image = null;
 		try {
 			image = ImageIO.read(url);
