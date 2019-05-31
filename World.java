@@ -68,8 +68,6 @@ public class World extends Canvas implements KeyListener, Runnable
 		  player.draw(graphToBack);
 	  }
 	  
-	  //System.out.println("left " + player.didCollideLeft(leftWall));
-	  
 	  if(keys[3] && !player.didCollideBot(botWall))
 	  {
 		  player.move("down");
@@ -81,7 +79,6 @@ public class World extends Canvas implements KeyListener, Runnable
 
   public void keyPressed(KeyEvent e)
   {
-
     if (e.getKeyCode() == KeyEvent.VK_LEFT)
     {
       keys[0] = true;

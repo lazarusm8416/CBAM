@@ -94,13 +94,13 @@ public class Player extends ColidableObject{
   }
   public void move (String dir){
 	if (dir.equals("up"))
-		setY(getY()-speed);
+		setY(getY()-(int)(2*speed));
 	if (dir.equals("down"))
-		setY(getY()+speed);
+		setY(getY()+(int)(2*speed));
 	if (dir.equals("left"))
-		setX(getX()-speed);
+		setX(getX()-(int)(2*speed));
 	if (dir.equals("right"))
-		setX(getX()+speed);
+		setX(getX()+(int)(2*speed));
   }
   
   public void draw (Graphics window){
