@@ -6,6 +6,7 @@ public class DrawPlayer {
     private int y;
     private Player player;
     private String name;
+    private Image image;
 
     public DrawPlayer(int x, int y, String name) {
         this.x = x;

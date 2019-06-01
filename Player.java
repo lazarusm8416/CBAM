@@ -72,6 +72,7 @@ public class Player extends ColidableObject{
 	int g = (int)(Math.random()*255);
 	return new Color(r,g,b);
   }
+
   public void bounce(String dir){
 	for (int i =0; i<10; i++){
 		move(dir);
@@ -94,15 +95,19 @@ public class Player extends ColidableObject{
   }
   public void move (String dir){
 	if (dir.equals("up"))
-		setY(getY()-(int)(2*speed));
+		setY(getY()-speed);
 	if (dir.equals("down"))
-		setY(getY()+(int)(2*speed));
+		setY(getY()+speed);
 	if (dir.equals("left"))
-		setX(getX()-(int)(2*speed));
+		setX(getX()-speed);
 	if (dir.equals("right"))
-		setX(getX()+(int)(2*speed));
+		setX(getX()+speed);
+	setS(speed+1);
   }
-  
+  public void decel(){
+	speed=5;
+  }
+
   public void draw (Graphics window){
 	window.setColor(color);
 	window.drawImage(image,getX(),getY(),getW(),getH(),null);

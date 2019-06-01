@@ -33,32 +33,21 @@ public class UserClient implements Runnable {
 		while (!(window instanceof Graphics)) {
 			return;
 		}
-		URL url = getClass().getResource("playerRight.png");
-		boolean go = false;
-		if (direction.equals("RIGHT")) {
-			url = getClass().getResource("playerRight.png");
-			go = true;
-		} else if (direction.equals("LEFT")) {
-			url = getClass().getResource("playerLeft.png");
-			go = true;
-		}
+		URL url = getClass().getResource("car.jpg");
 		Image image = null;
-		if (go) {
-			try {
-				image = ImageIO.read(url);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		try {
+			image = ImageIO.read(url);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
 		if (!this.name.equals(name)) {
 			//window.drawImage(image, x, y, 50, 50, null);
 			for (DrawPlayer pl : players) {
 				if (pl.getName().equals(name)) {
 					pl.setX(x);
 					pl.setY(y);
-					if (go) {
-						pl.setImage(image);
-					}
+					pl.setImage(image);
 				}
 			}
 		}
