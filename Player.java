@@ -13,7 +13,8 @@ public class Player extends ColidableObject{
   private Image image;
   private int lilS;
 	
-  public Player(){
+  public Player()
+  {
 	this(0,0,10,10,1);
 	try{
 		URL url = getClass().getResource("car.jpg");
@@ -23,7 +24,8 @@ public class Player extends ColidableObject{
 		}
   }
 
-  public Player (int x, int y){
+  public Player (int x, int y)
+  {
 	this (x,y,10,10,1);
 	try{
 		URL url = getClass().getResource("car.jpg");
@@ -33,7 +35,8 @@ public class Player extends ColidableObject{
 		}
   }
 
-  public Player (int x, int y, int s){
+  public Player (int x, int y, int s)
+  {
 	this (x,y,10,10,s);
 	try{
 		URL url = getClass().getResource("car.jpg");
@@ -43,7 +46,8 @@ public class Player extends ColidableObject{
 		}
   }
   
-  public Player(int x, int y, int w, int h, int s){
+  public Player(int x, int y, int w, int h, int s)
+  {
 	super(x,y,w,h);
 	speed=s;
 	lilS=0;
@@ -56,33 +60,39 @@ public class Player extends ColidableObject{
 		}
   }
 
-  public void setS(int s){
+  public void setS(int s)
+  {
 	speed = s;
   }
 	
-  public void setClient(UserClient client) {
+  public void setClient(UserClient client)
+  {
     this.client = client;
   }
 	
-  public int getS(){
+  public int getS()
+  {
 	return speed;
   }
 
-  public Color rColor(){
+  public Color rColor()
+  {
 	int r = (int)(Math.random()*255);
 	int b = (int)(Math.random()*255);
 	int g = (int)(Math.random()*255);
 	return new Color(r,g,b);
   }
 
-  public void bounce(String dir){
+  public void bounce(String dir)
+  {
 	decel();
 	for (int i =0; i<10; i++){
 		move(dir);
 	}
 	decel();
   }
-  public void bump(Player p){
+  public void bump(Player p)
+  {
 	if (getY()==p.getY()+p.getH()){ //this top bounce
 		if ( (getX() > p.getX() && getX() < p.getX()+p.getW()) || (getX()+getW() > p.getX() && getX()+getW() < p.getX()+p.getW()) ){
 			bounce("down");
@@ -97,7 +107,8 @@ public class Player extends ColidableObject{
 		}
 	}
   }
-  public void move (String dir){
+  public void move (String dir)
+  {
 	if (dir.equals("up"))
 		setY(getY()-speed);
 	if (dir.equals("down"))
@@ -109,7 +120,8 @@ public class Player extends ColidableObject{
 	if (speed<=20)
 		lilS();
   }
-  public void lilS(){
+  public void lilS()
+  {
 	  lilS+=1;
 	  if (lilS==20){
 		  speed+=1;
@@ -117,12 +129,14 @@ public class Player extends ColidableObject{
 	  }
   }
 	
-  public void decel(){
+  public void decel()
+  {
 	speed=1;
 	lilS=0;
   }
 
-  public void draw (Graphics window){
+  public void draw (Graphics window)
+  {
 	window.setColor(color);
 	window.drawImage(image,getX(),getY(),getW(),getH(),null);
   }
