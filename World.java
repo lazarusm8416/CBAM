@@ -148,7 +148,7 @@ public class World extends Canvas implements KeyListener, Runnable
 	
 
 	saveScore();
-	  //client.draw();
+	  client.draw();
 	  twoDGraph.drawImage(back, null, 0, 0);
   }
 
