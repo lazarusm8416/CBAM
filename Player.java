@@ -106,7 +106,7 @@ public class Player extends ColidableObject{
 	setS(speed+1);
   }
   public void decel(){
-	speed=5;
+	speed=1;
   }
 
   public void draw (Graphics window){
