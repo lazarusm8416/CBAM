@@ -134,7 +134,7 @@ public class World extends Canvas implements KeyListener, Runnable
     }
   }
 
-  public void keyTyped(KeyEvent e){}
+  public void keyTyped(KeyEvent e){  }
 
   public void run()
   {
