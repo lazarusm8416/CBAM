@@ -50,7 +50,7 @@ public class World extends Canvas implements KeyListener, Runnable
 			oos.writeObject(score);
 			oos.flush();
 			oos.close();
-			System.out.println("yay" + score);
+			//System.out.println("yay" + score);
 		}
 		
 		catch(IOException ex) 
@@ -66,7 +66,7 @@ public class World extends Canvas implements KeyListener, Runnable
 			FileInputStream fis = new FileInputStream("temp.out");
 			ObjectInputStream oin = new ObjectInputStream(fis);
 			score = (Integer) oin.readObject();
-			System.out.println("recieved");
+			System.out.println("recieved score");
 		}
 		
 		catch(IOException ex) 
@@ -94,7 +94,6 @@ public class World extends Canvas implements KeyListener, Runnable
 		 back = (BufferedImage)(createImage(getWidth(),getHeight()));
 	  }      
 	  Graphics graphToBack = back.createGraphics();
-	  
 	  graphToBack.setColor(Color.WHITE);
 	  graphToBack.fillRect(0,0,1000,700);
 	  graphToBack.drawString(""+score,200,200);
@@ -134,6 +133,10 @@ public class World extends Canvas implements KeyListener, Runnable
 		player.draw(graphToBack);
 	}
 	
+	if(player.didCollideLeft(leftWall) || player.didCollideRight(rightWall) || player.didCollideTop(topWall) || player.didCollideBot(botWall))
+	{
+		score++;
+	}
 	
 
 	saveScore();

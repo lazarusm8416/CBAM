@@ -104,7 +104,7 @@ public class Player extends ColidableObject{
 		setX(getX()-speed);
 	if (dir.equals("right"))
 		setX(getX()+speed);
-	if (speed<=150)
+	if (speed<=6)
 		setS(speed+1);
   }
   public void decel(){
