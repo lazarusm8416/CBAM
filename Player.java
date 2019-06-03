@@ -43,9 +43,10 @@ public class Player extends ColidableObject{
 		}
   }
   
-  public Player(int x, int y, int w, int h, int s){
+  public Player(int x, int y, int w, int h, int s, UserClient client){
 	super(x,y,w,h);
 	speed=s;
+	this.client = client;
 	lilS=0;
 	color = rColor();
 	try{
