@@ -87,6 +87,9 @@ public class World extends Canvas implements KeyListener, Runnable
 
   public void paint(Graphics window)
   {
+	  if (!(client instanceof UserClient)) {
+      		return;
+    	  }
 	  player.setClient(client);
 	  Graphics2D twoDGraph = (Graphics2D)window;
 	  if(back==null)
