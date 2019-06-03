@@ -14,7 +14,7 @@ public class Player extends ColidableObject{
   private int lilS;
 	
   public Player(){
-	this(0,0,10,10,1);
+	this(0,0,10,10,1,null);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
@@ -24,7 +24,7 @@ public class Player extends ColidableObject{
   }
 
   public Player (int x, int y){
-	this (x,y,10,10,1);
+	this (x,y,10,10,1,null);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
@@ -34,7 +34,7 @@ public class Player extends ColidableObject{
   }
 
   public Player (int x, int y, int s){
-	this (x,y,10,10,s);
+	this (x,y,10,10,s,null);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
