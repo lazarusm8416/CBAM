@@ -97,7 +97,7 @@ public class World extends Canvas implements KeyListener, Runnable
 		 back = (BufferedImage)(createImage(getWidth(),getHeight()));
 	  }      
 	  Graphics graphToBack = back.createGraphics();
-	  
+
 	  graphToBack.setColor(Color.WHITE);
 	  graphToBack.fillRect(0,0,1000,700);
 	  graphToBack.setColor(Color.BLACK);
