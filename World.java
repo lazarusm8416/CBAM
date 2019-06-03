@@ -162,6 +162,7 @@ public class World extends Canvas implements KeyListener, Runnable
     {
       keys[3] = true;
     }
+    repaint();
   }
 
   public void keyReleased(KeyEvent e){
@@ -182,6 +183,7 @@ public class World extends Canvas implements KeyListener, Runnable
     {
       keys[3] = false;
     }
+    repaint();
   }
 
   public void keyTyped(KeyEvent e){  }
