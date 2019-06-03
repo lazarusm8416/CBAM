@@ -72,6 +72,7 @@ public class UserClient implements Runnable {
 			output = new PrintWriter(socket.getOutputStream(), true);
 			//Scanner sockscan = new Scanner(socket.getInputStream());
 			//Thread t = new Thread(new UserClient(hostname));
+			output.println(name);
 			Thread t = new Thread(this);
 			t.start();
 			//while (true) {
