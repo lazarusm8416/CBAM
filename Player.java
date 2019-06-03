@@ -11,9 +11,10 @@ public class Player extends ColidableObject{
   private Color color;
   private UserClient client;
   private Image image;
+  private int lilS;
 	
   public Player(){
-	this(0,0,10,10,5);
+	this(0,0,10,10,1);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
@@ -23,7 +24,7 @@ public class Player extends ColidableObject{
   }
 
   public Player (int x, int y){
-	this (x,y,10,10,5);
+	this (x,y,10,10,1);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
@@ -45,6 +46,7 @@ public class Player extends ColidableObject{
   public Player(int x, int y, int w, int h, int s){
 	super(x,y,w,h);
 	speed=s;
+	lilS=0;
 	color = rColor();
 	try{
 		URL url = getClass().getResource("car.jpg");
@@ -104,11 +106,20 @@ public class Player extends ColidableObject{
 		setX(getX()-speed);
 	if (dir.equals("right"))
 		setX(getX()+speed);
-	if (speed<=6)
-		setS(speed+1);
+	if (speed<=20)
+		lilS();
   }
+  public void lilS(){
+	  lilS+=1;
+	  if (lilS==20){
+		  speed+=1;
+		  lilS=0;
+	  }
+  }
+	
   public void decel(){
 	speed=1;
+	lilS=0;
   }
 
   public void draw (Graphics window){
