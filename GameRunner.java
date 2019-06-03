@@ -32,7 +32,7 @@ public class GameRunner extends JFrame implements Runnable {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(WIDTH,HEIGHT);
 
-    World theWorld = new World(WIDTH, HEIGHT);
+    World theWorld = new World();
     ((Component)theWorld).setFocusable(true);
 
     getContentPane().add(theWorld);
