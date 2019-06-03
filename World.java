@@ -30,6 +30,7 @@ public class World extends Canvas implements KeyListener, Runnable
 	rightWall = new Wall(990,0,10,700);
 	topWall = new Wall(0,0,1000,10);
 	botWall = new Wall(0,670,1000,10);
+	client = new UserClient();
 	this.addKeyListener(this);
     new Thread(this).start();
   }
