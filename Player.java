@@ -78,6 +78,7 @@ public class Player extends ColidableObject{
 	for (int i =0; i<10; i++){
 		move(dir);
 	}
+	decel();
   }
   public void bump(Player p){
 	if (getY()==p.getY()+p.getH()){ //this top bounce
@@ -103,7 +104,8 @@ public class Player extends ColidableObject{
 		setX(getX()-speed);
 	if (dir.equals("right"))
 		setX(getX()+speed);
-	setS(speed+1);
+	if (speed<=150)
+		setS(speed+1);
   }
   public void decel(){
 	speed=1;

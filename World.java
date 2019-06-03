@@ -87,6 +87,7 @@ public class World extends Canvas implements KeyListener, Runnable
 
   public void paint(Graphics window)
   {
+	  player.setClient(client);
 	  Graphics2D twoDGraph = (Graphics2D)window;
 	  if(back==null)
 	  {
@@ -180,7 +181,7 @@ public class World extends Canvas implements KeyListener, Runnable
     }
   }
 
-  public void keyTyped(KeyEvent e){}
+  public void keyTyped(KeyEvent e){  }
 
   public void run()
   {
