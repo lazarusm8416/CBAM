@@ -97,9 +97,14 @@ public class World extends Canvas implements KeyListener, Runnable
 		 back = (BufferedImage)(createImage(getWidth(),getHeight()));
 	  }      
 	  Graphics graphToBack = back.createGraphics();
+	  
 	  graphToBack.setColor(Color.WHITE);
 	  graphToBack.fillRect(0,0,1000,700);
 	  graphToBack.drawString(""+score,200,200);
+	  
+	  if (!(client.getWindow() instanceof Graphics)) {
+      		client.setWindow(graphToBack);
+    	  }
 	  player.draw(graphToBack);
 	  leftWall.draw(graphToBack);
 	  rightWall.draw(graphToBack);
