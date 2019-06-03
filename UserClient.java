@@ -148,6 +148,20 @@ public class UserClient implements Runnable {
 					String s = sockscan.nextLine();
 					if (s.contains("Your Client ID")) {
 						id = Integer.valueOf(s.replace("Your Client ID is: ",""));
+					} else if (s.contains("CLIENT CLOSED: ")) {
+						s=s.replace("CLIENT CLOSED: ", "");
+						int index = 0;
+						boolean remove = false;
+						for (DrawPlayer pl : players) {
+							if (pl.getName().equals(s)) {
+								remove = true;
+								break;
+							}
+							index++;
+						}
+						if (remove) {
+							players.remove(index);
+						}
 					} else if (s.contains("moved to") && !s.contains(":")) {
 						String position = s.replace("moved to ", "");
 						position = position.replace("[]", ",");
