@@ -51,7 +51,10 @@ public class Server {
 			ClientThread w;
 			try {
 				Socket socket = server.accept();
-				w = new ClientThread(new Client(socket, currentId), textArea, this);
+				BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				String name = reader.readLine();
+				System.out.println(name);
+				w = new ClientThread(new Client(socket, currentId), textArea, this, name);
 				clients.add(w);
 				Thread thread = new Thread(w);
 				thread.start();
