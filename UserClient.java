@@ -223,6 +223,7 @@ public class UserClient implements Runnable {
 	@Override
 	protected void finalize() {
 		try {
+			this.broadcastMessage("CLIENT CLOSED: " + name);
 			PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 			output.println("CLOSE CLIENT ID: " + id);
 			socket.close();
