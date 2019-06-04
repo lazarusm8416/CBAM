@@ -107,12 +107,12 @@ public class Player extends ColidableObject{
 		setX(getX()-speed);
 	if (dir.equals("right"))
 		setX(getX()+speed);
-	if (speed<=20)
+	if (speed<=25)
 		lilS();
   }
   public void lilS(){
 	  lilS+=1;
-	  if (lilS==20){
+	  if (lilS==150){
 		  speed+=1;
 		  lilS=0;
 	  }
