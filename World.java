@@ -220,7 +220,7 @@ public class World extends Canvas implements KeyListener, Runnable
     }
   }
   
-  public Player getPlayer(){
+  public static Player getPlayer(){
   	return player;
   }
 }
