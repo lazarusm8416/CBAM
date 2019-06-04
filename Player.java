@@ -12,6 +12,7 @@ public class Player extends ColidableObject{
   private UserClient client;
   private Image image;
   private int lilS;
+  private String direction;
 	
   public Player(){
 	this(0,0,10,10,1,null);
@@ -99,6 +100,7 @@ public class Player extends ColidableObject{
 	}
   }
   public void move (String dir){
+	direction = dir;
 	if (dir.equals("up"))
 		setY(getY()-speed);
 	if (dir.equals("down"))
@@ -107,12 +109,12 @@ public class Player extends ColidableObject{
 		setX(getX()-speed);
 	if (dir.equals("right"))
 		setX(getX()+speed);
-	if (speed<=25)
+	if (speed<=20)
 		lilS();
   }
   public void lilS(){
 	  lilS+=1;
-	  if (lilS==150){
+	  if (lilS==20){
 		  speed+=1;
 		  lilS=0;
 	  }
@@ -126,6 +128,7 @@ public class Player extends ColidableObject{
   public void draw (Graphics window){
 	window.setColor(color);
 	window.drawImage(image,getX(),getY(),getW(),getH(),null);
+	client.broadcastMessage(client.getName() + "," + "moved to " + getX() + "[]" + getY() + "][" + direction);
   }
   
   
