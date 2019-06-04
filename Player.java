@@ -84,7 +84,7 @@ public class Player extends ColidableObject{
 	}
 	decel();
   }
-  public void bump(Object p){
+  public void bump(Player p){
 	if (getY()==p.getY()+p.getH()){ //this top bounce
 		if ( (getX() > p.getX() && getX() < p.getX()+p.getW()) || (getX()+getW() > p.getX() && getX()+getW() < p.getX()+p.getW()) ){
 			bounce("down");
@@ -128,7 +128,6 @@ public class Player extends ColidableObject{
   public void draw (Graphics window){
 	window.setColor(color);
 	window.drawImage(image,getX(),getY(),getW(),getH(),null);
-	window.drawRect(getX(),getY(),getW(),getH());
 	client.broadcastMessage(client.getName() + "," + "moved to " + getX() + "[]" + getY() + "][" + direction);
   }
   
