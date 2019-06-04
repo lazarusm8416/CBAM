@@ -128,6 +128,7 @@ public class Player extends ColidableObject{
   public void draw (Graphics window){
 	window.setColor(color);
 	window.drawImage(image,getX(),getY(),getW(),getH(),null);
+	window.drawRect(getX(),getY(),getW(),getH());
 	client.broadcastMessage(client.getName() + "," + "moved to " + getX() + "[]" + getY() + "][" + direction);
   }
   
