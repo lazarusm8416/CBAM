@@ -17,7 +17,7 @@ public class World extends Canvas implements KeyListener, Runnable
 {
   private ArrayList<Player> players;
   private boolean[] keys;
-  private Player player;
+  static Player player;
   private Wall leftWall, rightWall, topWall, botWall;
   private BufferedImage back;
   private UserClient client;
@@ -220,7 +220,7 @@ public class World extends Canvas implements KeyListener, Runnable
     }
   }
   
-  public Player getPlayer(){
+  public static Player getPlayer(){
   	return player;
   }
 }
