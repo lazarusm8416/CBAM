@@ -12,9 +12,9 @@ public class Player extends ColidableObject{
   private UserClient client;
   private Image image;
   private int lilS;
+  private String direction;
 	
-  public Player()
-  {
+  public Player(){
 	this(0,0,10,10,1,null);
 	try{
 		URL url = getClass().getResource("car.jpg");
@@ -24,8 +24,9 @@ public class Player extends ColidableObject{
 		}
   }
 
-  public Player (int x, int y)
-  {
+
+  public Player (int x, int y){
+
 	this (x,y,10,10,1,null);
 	try{
 		URL url = getClass().getResource("car.jpg");
@@ -35,8 +36,7 @@ public class Player extends ColidableObject{
 		}
   }
 
-  public Player (int x, int y, int s)
-  {
+  public Player (int x, int y, int s){
 	this (x,y,10,10,s,null);
 	try{
 		URL url = getClass().getResource("car.jpg");
@@ -92,8 +92,9 @@ public class Player extends ColidableObject{
 	}
 	decel();
   }
-  public void bump(Player p)
-  {
+
+  public void bump(Player p){
+	
 	if (getY()==p.getY()+p.getH()){ //this top bounce
 		if ( (getX() > p.getX() && getX() < p.getX()+p.getW()) || (getX()+getW() > p.getX() && getX()+getW() < p.getX()+p.getW()) ){
 			bounce("down");
@@ -108,8 +109,9 @@ public class Player extends ColidableObject{
 		}
 	}
   }
-  public void move (String dir)
-  {
+
+  public void move (String dir){
+	direction = dir;
 	if (dir.equals("up"))
 		setY(getY()-speed);
 	if (dir.equals("down"))
@@ -140,7 +142,7 @@ public class Player extends ColidableObject{
   {
 	window.setColor(color);
 	window.drawImage(image,getX(),getY(),getW(),getH(),null);
-	//client.broadcastMessage(client.getName() + "," + "moved to " + getX() + "[]" + getY() + "][" + direction);
+	client.broadcastMessage(client.getName() + "," + "moved to " + getX() + "[]" + getY() + "][" + direction);
   }
   
   

@@ -24,7 +24,7 @@ public class UserClient implements Runnable {
 	public void draw() {
 		for (DrawPlayer pl : players) {
 			if (pl.getImage() instanceof Image) {
-				window.drawImage(pl.getImage(), pl.getX(), pl.getY(), 50, 50, null);
+				window.drawImage(pl.getImage(), pl.getX(), pl.getY(), 50, 35, null);
 			}
 		}
 	}
@@ -72,6 +72,7 @@ public class UserClient implements Runnable {
 			output = new PrintWriter(socket.getOutputStream(), true);
 			//Scanner sockscan = new Scanner(socket.getInputStream());
 			//Thread t = new Thread(new UserClient(hostname));
+			output.println(name);
 			Thread t = new Thread(this);
 			t.start();
 			//while (true) {
@@ -222,6 +223,7 @@ public class UserClient implements Runnable {
 	@Override
 	protected void finalize() {
 		try {
+			this.broadcastMessage("CLIENT CLOSED: " + name);
 			PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 			output.println("CLOSE CLIENT ID: " + id);
 			socket.close();

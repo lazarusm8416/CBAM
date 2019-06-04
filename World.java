@@ -97,7 +97,7 @@ public class World extends Canvas implements KeyListener, Runnable
 		 back = (BufferedImage)(createImage(getWidth(),getHeight()));
 	  }      
 	  Graphics graphToBack = back.createGraphics();
-	  
+
 	  graphToBack.setColor(Color.WHITE);
 	  graphToBack.fillRect(0,0,1000,700);
 	  graphToBack.setColor(Color.BLACK);
@@ -144,6 +144,15 @@ public class World extends Canvas implements KeyListener, Runnable
 	
 	if(player.didCollideLeft(leftWall) || player.didCollideRight(rightWall) || player.didCollideTop(topWall) || player.didCollideBot(botWall))
 	{
+		if (player.didCollideLeft(leftWall))
+			player.bounce("right");
+		if (player.didCollideRight(rightWall))
+			player.bounce("left");
+		if (player.didCollideTop(topWall))
+			player.bounce("down");
+		if (player.didCollideBot(botWall))
+			player.bounce("up");
+
 		score++;
 	}
 	
