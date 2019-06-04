@@ -50,5 +50,8 @@ public class GameRunner extends JFrame implements Runnable {
   public void run() {
     client = new UserClient();
   }
+  public void finalize() {
+    client.broadcastMessage("CLIENT CLOSED: " + client.getName());
+  }
 
 }

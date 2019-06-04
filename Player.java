@@ -15,7 +15,7 @@ public class Player extends ColidableObject{
 	
   public Player()
   {
-	this(0,0,10,10,1);
+	this(0,0,10,10,1,null);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
@@ -26,7 +26,7 @@ public class Player extends ColidableObject{
 
   public Player (int x, int y)
   {
-	this (x,y,10,10,1);
+	this (x,y,10,10,1,null);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
@@ -37,7 +37,7 @@ public class Player extends ColidableObject{
 
   public Player (int x, int y, int s)
   {
-	this (x,y,10,10,s);
+	this (x,y,10,10,s,null);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
@@ -46,10 +46,11 @@ public class Player extends ColidableObject{
 		}
   }
   
-  public Player(int x, int y, int w, int h, int s)
+  public Player(int x, int y, int w, int h, int s, UserClient client)
   {
 	super(x,y,w,h);
 	speed=s;
+	this.client = client;
 	lilS=0;
 	color = rColor();
 	try{
@@ -139,6 +140,7 @@ public class Player extends ColidableObject{
   {
 	window.setColor(color);
 	window.drawImage(image,getX(),getY(),getW(),getH(),null);
+	//client.broadcastMessage(client.getName() + "," + "moved to " + getX() + "[]" + getY() + "][" + direction);
   }
   
   

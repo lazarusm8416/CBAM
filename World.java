@@ -31,7 +31,7 @@ public class World extends Canvas implements KeyListener, Runnable
   public World()
   {
 	keys = new boolean[4];
-	player = new Player(100,100, 50, 35, 3);
+	player = new Player(100,100, 50, 35, 3, null);
 	leftWall = new Wall(0,0,10,700);
 	rightWall = new Wall(990,0,10,700);
 	topWall = new Wall(0,0,1000,10);
@@ -100,7 +100,8 @@ public class World extends Canvas implements KeyListener, Runnable
 	  
 	  graphToBack.setColor(Color.WHITE);
 	  graphToBack.fillRect(0,0,1000,700);
-	  graphToBack.drawString(""+score,200,200);
+	  graphToBack.setColor(Color.BLACK);
+	  graphToBack.drawString(client.getName()+" : " + score,200,200);
 	  
 	  if (!(client.getWindow() instanceof Graphics)) {
       		client.setWindow(graphToBack);
