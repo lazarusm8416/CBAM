@@ -79,7 +79,7 @@ public class Player extends ColidableObject{
 
   public void bounce(String dir){
 	decel();
-	for (int i =0; i<10; i++){
+	for (int i =0; i<15; i++){
 		move(dir);
 	}
 	decel();
@@ -98,6 +98,21 @@ public class Player extends ColidableObject{
 			p.bounce("right");
 		}
 	}
+
+	if (getX()+getW()==p.getX()){
+		if ( (getY() > p.getY() && getY() < p.getY()+p.getH()) || (getY()+getH() > p.getY() && getY()+getH() < p.getY()+p.getH()) ){
+			bounce("right");
+			p.bounce("left");
+		}
+	}
+
+	if (getY()+getH() == p.getY()){
+		if ( (getX() > p.getX() && getX() < p.getX()+p.getW()) || (getX()+getW() > p.getX() && getX()+getW() < p.getX()+p.getW()) ){
+			bounce("up");
+			bounce("down");
+		}
+	}
+
   }
   public void move (String dir){
 	direction = dir;
