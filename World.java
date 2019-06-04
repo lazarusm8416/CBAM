@@ -144,6 +144,15 @@ public class World extends Canvas implements KeyListener, Runnable
 	
 	if(player.didCollideLeft(leftWall) || player.didCollideRight(rightWall) || player.didCollideTop(topWall) || player.didCollideBot(botWall))
 	{
+		if (player.didColideLeft(leftWall))
+			bounce("right");
+		if (player.didColideRight(rightWall))
+			bounce("left");
+		if (player.didColideTop(topWall))
+			bounce("down");
+		if (player.didColideBot(botWall))
+			bounce("up");
+
 		score++;
 	}
 	
