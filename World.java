@@ -17,7 +17,7 @@ public class World extends Canvas implements KeyListener, Runnable
 {
   private ArrayList<Player> players;
   private boolean[] keys;
-  private Player player;
+  public Player player;
   private Wall leftWall, rightWall, topWall, botWall;
   private BufferedImage back;
   private UserClient client;
