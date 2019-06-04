@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class DrawPlayer {
+public class DrawPlayer extends ColidableObject{
 
     private int x;
     private int y;
@@ -9,6 +9,7 @@ public class DrawPlayer {
     private Image image;
 
     public DrawPlayer(int x, int y, String name) {
+        super(x,y,50,30);
         this.x = x;
         this.y = y;
         this.name = name;
