@@ -23,6 +23,7 @@ public class UserClient implements Runnable {
 
 	public void draw() {
 		for (DrawPlayer pl : players) {
+			pl.bump(World.getPlayer());
 			if (pl.getImage() instanceof Image) {
 				window.drawImage(pl.getImage(), pl.getX(), pl.getY(), 50, 35, null);
 			}

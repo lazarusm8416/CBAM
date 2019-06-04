@@ -1,13 +1,12 @@
 import java.awt.*;
 
-public class DrawPlayer extends ColidableObject{
+public class DrawPlayer extends Player{
 
-    private Player player;
     private String name;
     private Image image;
 
     public DrawPlayer(int x, int y, String name) {
-        super(x,y,50,30);
+        super(x,y,50,30,3,null);
         this.name = name;
     }
 
@@ -22,5 +21,5 @@ public class DrawPlayer extends ColidableObject{
     public void setImage(Image i) {
         image = i;
     }
-
+    
 }

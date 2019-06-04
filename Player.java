@@ -94,7 +94,6 @@ public class Player extends ColidableObject{
   }
 
   public void bump(Player p){
-	
 	if (getY()==p.getY()+p.getH()){ //this top bounce
 		if ( (getX() > p.getX() && getX() < p.getX()+p.getW()) || (getX()+getW() > p.getX() && getX()+getW() < p.getX()+p.getW()) ){
 			bounce("down");
