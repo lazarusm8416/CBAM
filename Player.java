@@ -97,27 +97,31 @@ public class Player extends ColidableObject{
 	if (getY()==p.getY()+p.getH()){ //this top bounce
 		if ( (getX() > p.getX() && getX() < p.getX()+p.getW()) || (getX()+getW() > p.getX() && getX()+getW() < p.getX()+p.getW()) ){
 			bounce("down");
+			System.out.println("hit top");
 			p.bounce("up");
 		}
 	}
 
 	if (getX()==p.getX()+p.getW()){ // this left bounce
 		if ( (getY() > p.getY() && getY() < p.getY()+p.getH()) || (getY()+getH() > p.getY() && getY()+getH() < p.getY()+p.getH()) ){
-			bounce("left");
-			p.bounce("right");
-		}
-	}
-
-	if (getX()+getW()==p.getX()){
-		if ( (getY() > p.getY() && getY() < p.getY()+p.getH()) || (getY()+getH() > p.getY() && getY()+getH() < p.getY()+p.getH()) ){
 			bounce("right");
+			System.out.println("hit left");
 			p.bounce("left");
 		}
 	}
 
-	if (getY()+getH() == p.getY()){
+	if (getX()+getW()==p.getX()){//hits right
+		if ( (getY() > p.getY() && getY() < p.getY()+p.getH()) || (getY()+getH() > p.getY() && getY()+getH() < p.getY()+p.getH()) ){
+			bounce("left");
+			System.out.println("hit right");
+			p.bounce("right");
+		}
+	}
+
+	if (getY()+getH() == p.getY()){//hits bot
 		if ( (getX() > p.getX() && getX() < p.getX()+p.getW()) || (getX()+getW() > p.getX() && getX()+getW() < p.getX()+p.getW()) ){
 			bounce("up");
+			System.out.println("hit bot");
 			bounce("down");
 		}
 	}

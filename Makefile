@@ -6,11 +6,17 @@ JC = javac
 
 CLASSES = \
 	ColidableObject.java \
-	PData.java \
 	Player.java \
 	World.java \
 	CBAM.java \
-
+	GameServer.java \
+	GameRunner.java \
+	DrawPlayer.java \
+	Wall.java \
+	Server.java \
+	Client.java \
+	ClientThread.java \
+	UserClient.java \
 
   default: classes
 
