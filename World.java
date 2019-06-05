@@ -137,7 +137,6 @@ public class World extends Canvas implements KeyListener, Runnable
 	  }
 	  
 	if (!(keys[0]||keys[1]||keys[2]||keys[3])){
-		System.out.println("decel");
 		player.decel();
 		player.draw(graphToBack);
 	}
