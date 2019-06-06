@@ -92,7 +92,7 @@ public class Player extends ColidableObject{
 			oos.writeObject(score);
 			oos.flush();
 			oos.close();
-			//System.out.println("yay" + score);
+			System.out.println("yay : " + score);
 		}
 		
 		catch(IOException ex) 

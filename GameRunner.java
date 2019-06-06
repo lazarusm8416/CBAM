@@ -15,7 +15,7 @@ public class GameRunner extends JFrame implements Runnable {
   public static void main(String[] args) {
     GameRunner game = new GameRunner();
   }
-//172.19.198.121
+//172.19.198.153
 
   public GameRunner() {
     super("CBAM Java");
