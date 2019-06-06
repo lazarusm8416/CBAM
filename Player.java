@@ -139,7 +139,24 @@ public class Player extends ColidableObject{
   }
 
   public void bump(Player p){
-	if (getY()==p.getY()+p.getH()){ //this top bounce
+	if (didCollideLeft(p)){
+		bounce("right");
+		p.bounce("left");
+	}
+	if (didCollideRight(p)){
+		bounce("left");
+		p.bounce("right");
+	}
+	if(didCollideTop(p)){
+		bounce("down");
+		p.bounce("up");
+	if (didCollideBot(p)){
+		bounce("up");
+		p.bounce("down");
+	}
+
+
+	/*if (getY()==p.getY()+p.getH()){ //this top bounce
 		if ( (getX() > p.getX() && getX() < p.getX()+p.getW()) || (getX()+getW() > p.getX() && getX()+getW() < p.getX()+p.getW()) ){
 			bounce("down");
 			System.out.println("hit top");
@@ -177,8 +194,8 @@ public class Player extends ColidableObject{
 			score++;
 			saveScore();
 		}
-	}
-
+	}*/
+  }
   }
 
   public void move (String dir){
