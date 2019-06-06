@@ -18,7 +18,7 @@ public class Player extends ColidableObject{
   private Image image;
   private int lilS;
   private String direction;
-  private int score;
+
 	
   public Player(){
 	this(0,0,10,10,1,null);
@@ -28,7 +28,6 @@ public class Player extends ColidableObject{
 		}
 		catch(Exception e){
 		}
-	retrieveScore();
   }
 
 
@@ -83,44 +82,7 @@ public class Player extends ColidableObject{
 	return speed;
   }
   
-  public void saveScore()
-	{
-		try
-		{
-			FileOutputStream fos = new FileOutputStream("temp.out");
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(score);
-			oos.flush();
-			oos.close();
-			System.out.println("yay : " + score);
-		}
-		
-		catch(IOException ex) 
-    { 
-        System.out.println("IOException is caught"); 
-    } 
-	}
-  
-  public void retrieveScore()
-	{
-		try
-		{
-			FileInputStream fis = new FileInputStream("temp.out");
-			ObjectInputStream oin = new ObjectInputStream(fis);
-			score = (Integer) oin.readObject();
-			System.out.println("recieved score");
-		}
-		
-		catch(IOException ex) 
-    { 
-        System.out.println("IOException is caught"); 
-    } 
-		
-		catch(ClassNotFoundException ex) 
-    { 
-        System.out.println("ClassNotFoundException is caught"); 
-    } 
-	}
+
 
   public Color rColor()
   {
@@ -144,8 +106,6 @@ public class Player extends ColidableObject{
 			bounce("down");
 			System.out.println("hit top");
 			p.bounce("up");
-			score++;
-			saveScore();
 		}
 	}
 
@@ -154,8 +114,6 @@ public class Player extends ColidableObject{
 			bounce("right");
 			System.out.println("hit left");
 			p.bounce("left");
-			score++;
-			saveScore();
 		}
 	}
 
@@ -164,8 +122,6 @@ public class Player extends ColidableObject{
 			bounce("left");
 			System.out.println("hit right");
 			p.bounce("right");
-			score++;
-			saveScore();
 		}
 	}
 
@@ -174,8 +130,6 @@ public class Player extends ColidableObject{
 			bounce("up");
 			System.out.println("hit bot");
 			p.bounce("down");
-			score++;
-			saveScore();
 		}
 	}
 
@@ -214,8 +168,6 @@ public class Player extends ColidableObject{
 	window.setColor(color);
 	window.fillRect(getX(),getY(),getW(),getH());
 	client.broadcastMessage(client.getName() + "," + "moved to " + getX() + "[]" + getY() + "][" + direction);
-	window.drawString(client.getName()+" : " + score,50,50);
-	System.out.println("print : " + score);
   }
   
   

@@ -4,6 +4,11 @@ import java.awt.Graphics2D;
 import java.awt.Canvas;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
@@ -12,10 +17,11 @@ public class World extends Canvas implements KeyListener, Runnable
 {
   private ArrayList<Player> players;
   private boolean[] keys;
-  static Player player;
+  private static Player player;
   private Wall leftWall, rightWall, topWall, botWall;
   private BufferedImage back;
   private UserClient client;
+  private static int score;
   
   public void setClient(UserClient c) {
     System.out.println("CLIENT SET");
@@ -32,7 +38,47 @@ public class World extends Canvas implements KeyListener, Runnable
 	botWall = new Wall(0,670,1000,10);
 	this.addKeyListener(this);
     new Thread(this).start();
+    retrieveScore();
   }
+  
+  public void saveScore()
+	{
+		try
+		{
+			FileOutputStream fos = new FileOutputStream("temp.out");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(score);
+			oos.flush();
+			oos.close();
+			System.out.println("yay : " + score);
+		}
+		
+		catch(IOException ex) 
+    { 
+        System.out.println("IOException is caught"); 
+    } 
+	}
+  
+  public void retrieveScore()
+	{
+		try
+		{
+			FileInputStream fis = new FileInputStream("temp.out");
+			ObjectInputStream oin = new ObjectInputStream(fis);
+			score = (Integer) oin.readObject();
+			System.out.println("recieved score");
+		}
+		
+		catch(IOException ex) 
+    { 
+        System.out.println("IOException is caught"); 
+    } 
+		
+		catch(ClassNotFoundException ex) 
+    { 
+        System.out.println("ClassNotFoundException is caught"); 
+    } 
+	}
 
   public void update(Graphics window)
   {
@@ -55,6 +101,7 @@ public class World extends Canvas implements KeyListener, Runnable
 	  graphToBack.setColor(Color.WHITE);
 	  graphToBack.fillRect(0,0,1000,700);
 	  graphToBack.setColor(Color.BLACK);
+	  graphToBack.drawString(client.getName()+" : " + score,50,50);
 	  
 	  if (!(client.getWindow() instanceof Graphics)) {
       		client.setWindow(graphToBack);
@@ -104,6 +151,8 @@ public class World extends Canvas implements KeyListener, Runnable
 			player.bounce("down");
 		if (player.didCollideBot(botWall))
 			player.bounce("up");
+		score++;
+		saveScore();
 	}
 	
 	  client.draw();
