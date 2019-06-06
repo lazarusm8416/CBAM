@@ -87,10 +87,9 @@ public class Player extends ColidableObject{
   public void bounce(String dir)
   {
 	decel();
-	for (int i =0; i<15; i++){
+	for (int i =0; i<25; i++){
 		move(dir);
 	}
-	decel();
   }
 
   public void bump(Player p){
@@ -160,6 +159,7 @@ public class Player extends ColidableObject{
   {
 	window.setColor(color);
 	window.drawImage(image,getX(),getY(),getW(),getH(),null);
+	window.drawRect(getX(),getY(),getW(),getH());
 	client.broadcastMessage(client.getName() + "," + "moved to " + getX() + "[]" + getY() + "][" + direction);
   }
   
