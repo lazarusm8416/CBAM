@@ -4,10 +4,12 @@ public class DrawPlayer extends Player{
 
     private String name;
     private Image image;
+    private Color color;
 
     public DrawPlayer(int x, int y, String name) {
-        super(x,y,50,30,3,null);
+        super(x,y,30,30,3,null,0);
         this.name = name;
+	color=rColor();
     }
 
     public Image getImage() {

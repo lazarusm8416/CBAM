@@ -106,6 +106,9 @@ public class Player extends ColidableObject{
 		move(dir);
 	}
   }
+  public Color getC(){
+	return color;
+  }
 
   public void bump(Player p){
 	if (didCollideLeft(p)){
