@@ -31,14 +31,14 @@ public class World extends Canvas implements KeyListener, Runnable
   public World()
   {
 	keys = new boolean[4];
-	player = new Player((int)(Math.random()*500),(int)(Math.random()*500), 30, 30, 3, null);
+	retrieveScore();
+	player = new Player((int)(Math.random()*500),(int)(Math.random()*500), 30, 30, 3, null,score);
 	leftWall = new Wall(0,0,10,700);
 	rightWall = new Wall(990,0,10,700);
 	topWall = new Wall(0,0,1000,10);
 	botWall = new Wall(0,670,1000,10);
 	this.addKeyListener(this);
     new Thread(this).start();
-    retrieveScore();
   }
   
   public void saveScore()
@@ -154,7 +154,7 @@ public class World extends Canvas implements KeyListener, Runnable
 		score++;
 		saveScore();
 	}
-	
+	  score = player.getScore();
 	  client.draw();
 	  twoDGraph.drawImage(back, null, 0, 0);
   }

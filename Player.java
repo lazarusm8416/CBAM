@@ -1,11 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -18,10 +13,11 @@ public class Player extends ColidableObject{
   private Image image;
   private int lilS;
   private String direction;
+  private int score;
 
 	
   public Player(){
-	this(0,0,10,10,1,null);
+	this(0,0,10,10,1,null,0);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
@@ -33,7 +29,7 @@ public class Player extends ColidableObject{
 
   public Player (int x, int y){
 
-	this (x,y,10,10,1,null);
+	this (x,y,10,10,1,null,0);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
@@ -43,7 +39,7 @@ public class Player extends ColidableObject{
   }
 
   public Player (int x, int y, int s){
-	this (x,y,10,10,s,null);
+	this (x,y,10,10,s,null,0);
 	try{
 		URL url = getClass().getResource("car.jpg");
 	    image = ImageIO.read(url);
@@ -52,7 +48,7 @@ public class Player extends ColidableObject{
 		}
   }
   
-  public Player(int x, int y, int w, int h, int s, UserClient client)
+  public Player(int x, int y, int w, int h, int s, UserClient client, int sc)
   {
 	super(x,y,w,h);
 	speed=s;
@@ -65,11 +61,22 @@ public class Player extends ColidableObject{
 		}
 		catch(Exception e){
 		}
+	score = sc;
   }
 
   public void setS(int s)
   {
 	speed = s;
+  }
+  
+  public void setScore()
+  {
+	  score++;
+  }
+  
+  public int getScore()
+  {
+	  return score;
   }
 	
   public void setClient(UserClient client)
@@ -104,17 +111,22 @@ public class Player extends ColidableObject{
 	if (didCollideLeft(p)){
 		bounce("right");
 		p.bounce("left");
+		setScore();
 	}
 	if (didCollideRight(p)){
 		bounce("left");
 		p.bounce("right");
+		setScore();
 	}
 	if(didCollideTop(p)){
 		bounce("down");
 		p.bounce("up");
+		setScore();
+	}
 	if (didCollideBot(p)){
 		bounce("up");
 		p.bounce("down");
+		setScore();
 	}
 
 
@@ -149,7 +161,6 @@ public class Player extends ColidableObject{
 			p.bounce("down");
 		}
 	}*/
-  }
   }
 
   public void move (String dir){
