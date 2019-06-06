@@ -72,7 +72,7 @@ public abstract class ColidableObject
 	  {
 		  return true;
 	  }
-	  
+	 System.out.println("collide left");
 	  return false;
   }
   
@@ -82,7 +82,7 @@ public abstract class ColidableObject
 	  {
 		  return true;
 	  }
-	  
+	  System.out.println("collide right");
 	  return false;
   }
   
@@ -92,7 +92,7 @@ public abstract class ColidableObject
 	  {
 		  return true;
 	  }
-	  
+	  System.out.println("collide top");
 	  return false;
   }
   
@@ -102,7 +102,7 @@ public abstract class ColidableObject
 	  {
 		  return true;
 	  }
-	  
+	  System.out.println("collide bottom");
 	  return false;
   }
   
