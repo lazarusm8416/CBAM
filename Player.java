@@ -173,7 +173,7 @@ public class Player extends ColidableObject{
 		if ( (getX() > p.getX() && getX() < p.getX()+p.getW()) || (getX()+getW() > p.getX() && getX()+getW() < p.getX()+p.getW()) ){
 			bounce("up");
 			System.out.println("hit bot");
-			bounce("down");
+			p.bounce("down");
 			score++;
 			saveScore();
 		}
@@ -215,6 +215,7 @@ public class Player extends ColidableObject{
 	window.fillRect(getX(),getY(),getW(),getH());
 	client.broadcastMessage(client.getName() + "," + "moved to " + getX() + "[]" + getY() + "][" + direction);
 	window.drawString(client.getName()+" : " + score,50,50);
+	System.out.println("print : " + score);
   }
   
   
