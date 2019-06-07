@@ -96,10 +96,13 @@ public abstract class ColidableObject
   
   public boolean didCollideTop(ColidableObject o)
   {
-	  if(yPos <= o.yPos + o.height)
+	  if(  (xPos>o.getX()&&xPos<o.getX()+o.getW()) || (xPos+width>o.getX()&&xPos+width<o.getX()+o.getW())  )
 	  {
+		if (  yPos<=o.getY()+o.getH() )
+		{
 		  System.out.println("collide top");
 		  return true;
+		}
 	  }
 	  //System.out.println("collide top");
 	  return false;
@@ -107,10 +110,13 @@ public abstract class ColidableObject
   
   public boolean didCollideBot(ColidableObject o)
   {
-	  if(yPos + height >= o.yPos)
+	  if(  (xPos>o.getX()&&xPos<o.getX()+o.getW()) || (xPos+width>o.getX()&&xPos+width<o.getX()+o.getW())  )
 	  {
+		if (yPos>=o.getY()+o.getH())
+		{
 		  System.out.println("collide bottom");
 		  return true;
+		}
 	  }
 	  //System.out.println("collide bottom");
 	  return false;
