@@ -28,7 +28,7 @@ public class World extends Canvas implements KeyListener, Runnable
 
   public World()
   {
-	keys = new boolean[4];
+	keys = new boolean[5];
 	retrieveScore();
 	player = new Player((int)(Math.random()*800),(int)(Math.random()*800), 25, 25, 1, null, score);
 	leftWall = new Wall(0,0,10,700);
@@ -134,6 +134,12 @@ public class World extends Canvas implements KeyListener, Runnable
 		  player.draw(graphToBack);
 	  }
 	  
+	  if(keys[4])
+	  {
+		  score = 0;
+		  player.setScore(0);
+	  }
+	  
 	if (!(keys[0]||keys[1]||keys[2]||keys[3])){
 		player.decel();
 		player.draw(graphToBack);
@@ -149,7 +155,7 @@ public class World extends Canvas implements KeyListener, Runnable
 			player.bounce("down");
 		if (player.didCollideBot(botWall))
 			player.bounce("up");
-		player.setScore();
+		player.setScore(player.getScore()+1);
 	}
 	  score = player.getScore();
 	  saveScore();
@@ -176,6 +182,10 @@ public class World extends Canvas implements KeyListener, Runnable
     {
       keys[3] = true;
     }
+    if (e.getKeyCode() == KeyEvent.VK_R)
+    {
+      keys[4] = true;
+    }
     repaint();
   }
 
@@ -196,6 +206,10 @@ public class World extends Canvas implements KeyListener, Runnable
     if (e.getKeyCode() == KeyEvent.VK_DOWN)
     {
       keys[3] = false;
+    }
+    if (e.getKeyCode() == KeyEvent.VK_R)
+    {
+      keys[4] = false;
     }
     repaint();
   }

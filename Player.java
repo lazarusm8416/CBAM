@@ -69,9 +69,9 @@ public class Player extends ColidableObject{
 	speed = s;
   }
   
-  public void setScore()
+  public void setScore(int s)
   {
-	  score++;
+	  score = s;
   }
   
   public int getScore()
@@ -119,25 +119,25 @@ public class Player extends ColidableObject{
 	if (didCollideLeft(p)){
 		bounce("right");
 		p.bounce("left");
-		setScore();
+		score++;
 		//System.out.println(score);
 	}
 	if (didCollideRight(p)){
 		bounce("left");
 		p.bounce("right");
-		setScore();
+		score++;
 		//System.out.println(score);
 	}
 	if(didCollideTop(p)){
 		bounce("down");
 		p.bounce("up");
-		setScore();
+		score++;
 		//System.out.println(score);
 	}
 	if (didCollideBot(p)){
 		bounce("up");
 		p.bounce("down");
-		setScore();
+		score++;
 		//System.out.println(score);
 	}
 
