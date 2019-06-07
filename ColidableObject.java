@@ -68,10 +68,13 @@ public abstract class ColidableObject
   
   public boolean didCollideLeft(ColidableObject o)
   {
-	  if(xPos <= o.xPos + o.width)
+	  if(  (yPos>o.getY()&&yPos<o.getY()+o.getH()) || (yPos+height>o.getY()&&yPos+height<o.getY()+o.getH()) )//heac on collision in y axis.
 	  {
+		if ( xPos+width>=o.getX() ) // left side touchie.
+		{
 		  System.out.println("collide left");
 		  return true;
+		}
 	  }
 	 //System.out.println("collide left");
 	  return false;
@@ -79,10 +82,13 @@ public abstract class ColidableObject
   
   public boolean didCollideRight(ColidableObject o)
   {
-	  if(xPos + width >= o.xPos)
+	  if(  (yPos>o.getY()&&yPos<o.getY()+o.getH()) || (yPos+height>o.getY()&&yPos+height<o.getY()+o.getH())  )
 	  {
+		if ( xPos<=o.getX()+o.getW() )
+		{
 		  System.out.println("collide right");
 		  return true;
+		}
 	  }
 	  //System.out.println("collide right");
 	  return false;
