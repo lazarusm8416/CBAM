@@ -68,7 +68,7 @@ public abstract class ColidableObject
   
   public boolean didCollideLeft(ColidableObject o)
   {
-	  if(xPos <= o.xPos + o.width)
+	  if(xPos <= o.xPos + o.width && xPos > o.xPos + (o.width)/2)
 	  {
 		  System.out.println("collide left");
 		  return true;
@@ -79,7 +79,7 @@ public abstract class ColidableObject
   
   public boolean didCollideRight(ColidableObject o)
   {
-	  if(xPos + width >= o.xPos)
+	  if(xPos + width >= o.xPos && xPos + (width)/2 < o.xPos)
 	  {
 		  System.out.println("collide right");
 		  return true;
@@ -90,7 +90,7 @@ public abstract class ColidableObject
   
   public boolean didCollideTop(ColidableObject o)
   {
-	  if(yPos <= o.yPos + o.height)
+	  if(yPos <= o.yPos + o.height && yPos > o.yPos + (o.height)/2)
 	  {
 		  System.out.println("collide top");
 		  return true;
@@ -101,7 +101,7 @@ public abstract class ColidableObject
   
   public boolean didCollideBot(ColidableObject o)
   {
-	  if(yPos + height >= o.yPos)
+	  if(yPos + height >= o.yPos && yPos + (height)/2 < o.yPos)
 	  {
 		  System.out.println("collide bottom");
 		  return true;
