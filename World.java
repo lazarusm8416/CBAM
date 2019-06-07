@@ -32,7 +32,7 @@ public class World extends Canvas implements KeyListener, Runnable
   {
 	keys = new boolean[4];
 	retrieveScore();
-	player = new Player((int)(Math.random()*500),(int)(Math.random()*500), 30, 30, 3, null,score);
+	player = new Player((int)(Math.random()*800),(int)(Math.random()*800), 25, 25, 1, null, score);
 	leftWall = new Wall(0,0,10,700);
 	rightWall = new Wall(990,0,10,700);
 	topWall = new Wall(0,0,1000,10);
