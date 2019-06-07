@@ -109,8 +109,13 @@ public class Player extends ColidableObject{
   public Color getC(){
 	return color;
   }
+  public void getPoint(Player p){
+	if (speed>p.getS())
+		score+=1;
+  }
 
   public void bump(Player p){
+	getPoint(p);
 	if (didCollideLeft(p)){
 		bounce("right");
 		p.bounce("left");
