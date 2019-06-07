@@ -72,7 +72,7 @@ public abstract class ColidableObject
 	  {
 		if ( xPos+width>=o.getX() ) // left side touchie.
 		{
-		  System.out.println("collide left");
+		  System.out.println("collide left" +o.toString());
 		  return true;
 		}
 	  }
@@ -86,7 +86,7 @@ public abstract class ColidableObject
 	  {
 		if ( xPos<=o.getX()+o.getW() )
 		{
-		  System.out.println("collide right");
+		  System.out.println("collide right" + o.toString());
 		  return true;
 		}
 	  }
@@ -100,7 +100,7 @@ public abstract class ColidableObject
 	  {
 		if (  yPos<=o.getY()+o.getH() )
 		{
-		  System.out.println("collide top");
+		  System.out.println("collide top" + o.toString());
 		  return true;
 		}
 	  }
@@ -114,7 +114,7 @@ public abstract class ColidableObject
 	  {
 		if (yPos>=o.getY()+o.getH())
 		{
-		  System.out.println("collide bottom");
+		  System.out.println("collide bottom" + o.toString());
 		  return true;
 		}
 	  }
