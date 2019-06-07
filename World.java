@@ -152,9 +152,10 @@ public class World extends Canvas implements KeyListener, Runnable
 		if (player.didCollideBot(botWall))
 			player.bounce("up");
 		player.setScore();
-		saveScore();
 	}
 	  score = player.getScore();
+	  saveScore();
+	  
 	  client.draw();
 	  twoDGraph.drawImage(back, null, 0, 0);
   }
