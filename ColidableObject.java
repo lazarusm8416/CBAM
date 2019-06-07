@@ -70,9 +70,10 @@ public abstract class ColidableObject
   {
 	  if(xPos <= o.xPos + o.width)
 	  {
+		  System.out.println("collide left");
 		  return true;
 	  }
-	 System.out.println("collide left");
+	 //System.out.println("collide left");
 	  return false;
   }
   
@@ -80,9 +81,10 @@ public abstract class ColidableObject
   {
 	  if(xPos + width >= o.xPos)
 	  {
+		  System.out.println("collide right");
 		  return true;
 	  }
-	  System.out.println("collide right");
+	  //System.out.println("collide right");
 	  return false;
   }
   
@@ -90,9 +92,10 @@ public abstract class ColidableObject
   {
 	  if(yPos <= o.yPos + o.height)
 	  {
+		  System.out.println("collide top");
 		  return true;
 	  }
-	  System.out.println("collide top");
+	  //System.out.println("collide top");
 	  return false;
   }
   
@@ -100,9 +103,10 @@ public abstract class ColidableObject
   {
 	  if(yPos + height >= o.yPos)
 	  {
+		  System.out.println("collide bottom");
 		  return true;
 	  }
-	  System.out.println("collide bottom");
+	  //System.out.println("collide bottom");
 	  return false;
   }
   
