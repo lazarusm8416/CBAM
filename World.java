@@ -10,12 +10,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 
 public class World extends Canvas implements KeyListener, Runnable
 {
-  private ArrayList<Player> players;
   private boolean[] keys;
   private static Player player;
   private Wall leftWall, rightWall, topWall, botWall;
