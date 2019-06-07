@@ -115,21 +115,25 @@ public class Player extends ColidableObject{
 		bounce("right");
 		p.bounce("left");
 		setScore();
+		System.out.println(score);
 	}
 	if (didCollideRight(p)){
 		bounce("left");
 		p.bounce("right");
 		setScore();
+		System.out.println(score);
 	}
 	if(didCollideTop(p)){
 		bounce("down");
 		p.bounce("up");
 		setScore();
+		System.out.println(score);
 	}
 	if (didCollideBot(p)){
 		bounce("up");
 		p.bounce("down");
 		setScore();
+		System.out.println(score);
 	}
 
 
