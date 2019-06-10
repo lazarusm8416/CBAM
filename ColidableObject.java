@@ -98,7 +98,7 @@ public abstract class ColidableObject
   {
 	  if(  (xPos>o.getX()&&xPos<o.getX()+o.getW()) || (xPos+width>o.getX()&&xPos+width<o.getX()+o.getW())  )
 	  {
-		if (  yPos>=o.getY()+o.getH() )
+		if (  yPos<=o.getY()+o.getH() )
 		{
 		  System.out.println("collide top " + o.toString());
 		  return true;
