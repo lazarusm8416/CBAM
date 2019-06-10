@@ -212,6 +212,6 @@ public class Player extends ColidableObject{
   
   
   public String toString(){
-	return super.toString() + " " + speed + " " + color;
+	return super.getX() + " " + super.getY()  + " " + speed  + " " + score;
   }
 }
