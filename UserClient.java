@@ -28,7 +28,6 @@ public class UserClient implements Runnable {
 			player.bump(pl);
 			window.setColor(pl.getC());
 			window.fillRect(pl.getX(),pl.getY(),pl.getW(),pl.getH());
-			broadcastMessage(name + "," + "moved to " + pl.getX() + "[]" + pl.getY() + "][" + direction);
 		}
 	}
 
