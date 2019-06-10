@@ -36,11 +36,11 @@ public class World extends Canvas implements KeyListener, Runnable
 	topWall = new Wall(0,0,1000,10);
 	botWall = new Wall(0,670,1000,10);
 	this.addKeyListener(this);
-    new Thread(this).start();
+    	new Thread(this).start();
   }
   
   public void saveScore()
-	{
+  {
 		try
 		{
 			FileOutputStream fos = new FileOutputStream("temp.out");
@@ -52,13 +52,13 @@ public class World extends Canvas implements KeyListener, Runnable
 		}
 		
 		catch(IOException ex) 
-    { 
-        System.out.println("IOException is caught"); 
-    } 
-	}
+    		{ 
+        		System.out.println("IOException is caught"); 
+    		} 
+  }
   
   public void retrieveScore()
-	{
+  {
 		try
 		{
 			FileInputStream fis = new FileInputStream("temp.out");
@@ -68,15 +68,15 @@ public class World extends Canvas implements KeyListener, Runnable
 		}
 		
 		catch(IOException ex) 
-    { 
-        System.out.println("IOException is caught"); 
-    } 
+    		{ 
+        		System.out.println("IOException is caught"); 
+    		} 
 		
 		catch(ClassNotFoundException ex) 
-    { 
-        System.out.println("ClassNotFoundException is caught"); 
-    } 
-	}
+    		{ 
+        		System.out.println("ClassNotFoundException is caught"); 
+    		} 
+  }
 
   public void update(Graphics window)
   {
@@ -140,22 +140,22 @@ public class World extends Canvas implements KeyListener, Runnable
 		  player.setScore(0);
 	  }
 	  
-	if (!(keys[0]||keys[1]||keys[2]||keys[3])){
-		player.decel();
-		player.draw(graphToBack);
-	}
+	  if (!(keys[0]||keys[1]||keys[2]||keys[3])){
+		  player.decel();
+		  player.draw(graphToBack);
+	  }
 	
-	if(player.didCollideLeft(leftWall) || player.didCollideRight(rightWall) || player.didCollideTop(topWall) || player.didCollideBot(botWall))
-	{
-		if (player.didCollideLeft(leftWall))
-			player.bounce("right");
-		if (player.didCollideRight(rightWall))
-			player.bounce("left");
-		if (player.didCollideTop(topWall))
-			player.bounce("down");
-		if (player.didCollideBot(botWall))
-			player.bounce("up");
-	}
+	  if(player.didCollideLeft(leftWall) || player.didCollideRight(rightWall) || player.didCollideTop(topWall) || player.didCollideBot(botWall))
+	  {
+		  if (player.didCollideLeft(leftWall))
+			  player.bounce("right");
+		  if (player.didCollideRight(rightWall))
+			  player.bounce("left");
+		  if (player.didCollideTop(topWall))
+			  player.bounce("down");
+		  if (player.didCollideBot(botWall))
+			  player.bounce("up");
+	  }
 	  score = player.getScore();
 	  saveScore();
 	  
