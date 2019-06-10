@@ -177,8 +177,6 @@ public class UserClient implements Runnable {
 						int x = Integer.valueOf(position.split(",")[1]);
 						int y = Integer.valueOf(position.split(",")[2]);
 						String direction = String.valueOf(position.split(",")[3]);
-						World.getPlayer().setX(x);
-						World.getPlayer().setY(y);
 						
 						boolean has = false;
 						for (DrawPlayer pl : players) {
