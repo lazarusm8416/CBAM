@@ -8,7 +8,6 @@ CLASSES = \
 	ColidableObject.java \
 	Player.java \
 	World.java \
-	CBAM.java \
 	GameServer.java \
 	GameRunner.java \
 	DrawPlayer.java \

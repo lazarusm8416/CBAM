@@ -118,25 +118,26 @@ public class Player extends ColidableObject{
   public void bump(Player p){
 	if (didCollideLeft(p)){
 		bounce("right");
-		//p.bounce("left");
+		p.bounce("left");
 		getPoint(p);
-		score++;
 		//System.out.println(score);
 	}
 	if (didCollideRight(p)){
 		bounce("left");
+		p.bounce("right");
 		getPoint(p);
 		//System.out.println(score);
 	}
 	if(didCollideTop(p)){
 		bounce("down");
+		p.bounce("up");
 		//p.bounce("up");
 		getPoint(p);
-		score++;
 		//System.out.println(score);
 	}
 	if (didCollideBot(p)){
 		bounce("up");
+		p.bounce("down");
 		getPoint(p);
 		//System.out.println(score);
 	}
