@@ -102,7 +102,7 @@ public class Player extends ColidableObject{
   public void bounce(String dir)
   {
 	decel();
-	for (int i =0; i<25; i++){
+	for (int i =0; i<45; i++){
 		move(dir);
 	}
   }
