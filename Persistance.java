@@ -22,7 +22,7 @@ class Persistance extends Canvas implements KeyListener, Runnable
 		key = new boolean[2];
 		retrieve();
 		this.addKeyListener(this);
-	    new Thread(this).start();
+	    	new Thread(this).start();
 	}
 	
 	public void update(Graphics window)
@@ -43,9 +43,9 @@ class Persistance extends Canvas implements KeyListener, Runnable
 		}
 		
 		catch(IOException ex) 
-        { 
-            System.out.println("IOException is caught"); 
-        } 
+        	{ 
+            		System.out.println("IOException is caught"); 
+        	} 
 	}
 	
 	public void retrieve()
@@ -59,14 +59,14 @@ class Persistance extends Canvas implements KeyListener, Runnable
 		}
 		
 		catch(IOException ex) 
-        { 
-            System.out.println("IOException is caught"); 
-        } 
+        	{ 
+            		System.out.println("IOException is caught"); 
+        	} 
 		
 		catch(ClassNotFoundException ex) 
-        { 
-            System.out.println("ClassNotFoundException is caught"); 
-        } 
+        	{ 
+            		System.out.println("ClassNotFoundException is caught"); 
+        	} 
 	}
 	
 	public void paint(Graphics window)
@@ -108,51 +108,51 @@ class Persistance extends Canvas implements KeyListener, Runnable
 	}
 	
 	public void keyPressed(KeyEvent e)
-	  {
-		    if (e.getKeyCode() == KeyEvent.VK_SPACE)
-		    {
-		      key[0] = true;
-		    }
+	{
+		if (e.getKeyCode() == KeyEvent.VK_SPACE)
+		{
+		  key[0] = true;
+		}
 		    
-		    if (e.getKeyCode() == KeyEvent.VK_R)
-		    {
-		      key[1] = true;
-		    }
+		if (e.getKeyCode() == KeyEvent.VK_R)
+		{
+		  key[1] = true;
+		}
 
 	        repaint();
-	  }
+	}
 
-	  public void keyReleased(KeyEvent e)
-	  {
-		  if (e.getKeyCode() == KeyEvent.VK_SPACE)
-		    {
-		      key[0] = false;
-		    }
+	public void keyReleased(KeyEvent e)
+	{
+		if (e.getKeyCode() == KeyEvent.VK_SPACE)
+		{
+		  key[0] = false;
+		}
 		  
-		  if (e.getKeyCode() == KeyEvent.VK_R)
-		    {
-		      key[1] = false;
-		    }
+		if (e.getKeyCode() == KeyEvent.VK_R)
+		{
+		  key[1] = false;
+		}
 		  
-	    repaint();
-	  }
+	    	repaint();
+	}
 
-	  public void keyTyped(KeyEvent e)
-	  {
+	public void keyTyped(KeyEvent e)
+	{
 	    //no code needed here
-	  }
+	}
 
-	  public void run()
+	public void run()
+	{
+	  try
 	  {
-	    try
+	    while(true)
 	    {
-	      while(true)
-	      {
-	        Thread.currentThread().sleep(5);
-	        repaint();
-	      }
-	    }catch(Exception e)
-	    {
+	      Thread.currentThread().sleep(5);
+	      repaint();
 	    }
+	  }catch(Exception e)
+	  {
 	  }
+	}
 }
