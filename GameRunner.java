@@ -4,8 +4,8 @@ import java.awt.Component;
 
 public class GameRunner extends JFrame implements Runnable {
 
-  public static final int WIDTH = 1200;
-  public static final int HEIGHT = 800;
+  public static final int WIDTH = 1000;
+  public static final int HEIGHT = 720;
   private UserClient client;
 
   public UserClient getClient() {

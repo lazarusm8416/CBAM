@@ -10,7 +10,7 @@ public class Wall extends ColidableObject
 	
 	public void draw(Graphics window)
 	{
-		window.setColor(Color.BLACK);
+		window.setColor(Color.WHITE);
 		window.fillRect(getX(), getY(), getW(), getH());
 	}
 }
