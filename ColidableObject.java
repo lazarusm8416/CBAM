@@ -70,7 +70,7 @@ public abstract class ColidableObject
   {
 	  if(  (yPos>o.getY()&&yPos<o.getY()+o.getH()) || (yPos+height>o.getY()&&yPos+height<o.getY()+o.getH()) )//heac on collision in y axis.
 	  {
-		if ( xPos>=o.getX()+o.getW() ) // left side touchie.
+		if ( xPos<=o.getX()+o.getW() &&  xPos + width >= o.getX()+o.getW()) // left side touchie.
 		{
 		  System.out.println("collide left " +o.toString());
 		  return true;
@@ -84,7 +84,7 @@ public abstract class ColidableObject
   {
 	  if(  (yPos>o.getY()&&yPos<o.getY()+o.getH()) || (yPos+height>o.getY()&&yPos+height<o.getY()+o.getH())  )
 	  {
-		if ( xPos+width<=o.getX() )
+		if ( xPos+width>=o.getX() && xPos<=o.getX())
 		{
 		  System.out.println("collide right " + o.toString());
 		  return true;
@@ -98,7 +98,7 @@ public abstract class ColidableObject
   {
 	  if(  (xPos>o.getX()&&xPos<o.getX()+o.getW()) || (xPos+width>o.getX()&&xPos+width<o.getX()+o.getW())  )
 	  {
-		if (  yPos<=o.getY()+o.getH() )
+		if (  yPos<=o.getY()+o.getH() && yPos + height >= o.getY()+o.getH())
 		{
 		  System.out.println("collide top " + o.toString());
 		  return true;
@@ -112,7 +112,7 @@ public abstract class ColidableObject
   {
 	  if(  (xPos>o.getX()&&xPos<o.getX()+o.getW()) || (xPos+width>o.getX()&&xPos+width<o.getX()+o.getW())  )
 	  {
-		if (yPos+height>=o.getY())
+		if (yPos+height>=o.getY() && yPos<=o.getY())
 		{
 		  System.out.println("collide bottom " + o.toString());
 		  return true;
