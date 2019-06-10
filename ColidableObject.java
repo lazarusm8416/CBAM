@@ -68,7 +68,7 @@ public abstract class ColidableObject
   
   public boolean didCollideLeft(ColidableObject o)
   {
-	  if(  (yPos>o.getY()&&yPos<o.getY()+o.getH()) || (yPos+height>o.getY()&&yPos+height<o.getY()+o.getH()) )//heac on collision in y axis.
+	  if(  (yPos>o.getY()&&yPos<o.getY()+o.getH())) //|| (yPos+height>o.getY()&&yPos+height<o.getY()+o.getH()) )//heac on collision in y axis.
 	  {
 		if ( xPos+width<=o.getX() ) // left side touchie.
 		{
@@ -82,7 +82,7 @@ public abstract class ColidableObject
   
   public boolean didCollideRight(ColidableObject o)
   {
-	  if(  (yPos>o.getY()&&yPos<o.getY()+o.getH()) || (yPos+height>o.getY()&&yPos+height<o.getY()+o.getH())  )
+	  if(  (yPos>o.getY()&&yPos<o.getY()+o.getH())) //|| (yPos+height>o.getY()&&yPos+height<o.getY()+o.getH())  )
 	  {
 		if ( xPos>=o.getX()+o.getW() )
 		{
@@ -96,7 +96,7 @@ public abstract class ColidableObject
   
   public boolean didCollideTop(ColidableObject o)
   {
-	  if(  (xPos>o.getX()&&xPos<o.getX()+o.getW()) || (xPos+width>o.getX()&&xPos+width<o.getX()+o.getW())  )
+	  if(  (xPos>o.getX()&&xPos<o.getX()+o.getW())) //|| (xPos+width>o.getX()&&xPos+width<o.getX()+o.getW())  )
 	  {
 		if (  yPos<=o.getY()+o.getH() )
 		{
@@ -110,7 +110,7 @@ public abstract class ColidableObject
   
   public boolean didCollideBot(ColidableObject o)
   {
-	  if(  (xPos>o.getX()&&xPos<o.getX()+o.getW()) || (xPos+width>o.getX()&&xPos+width<o.getX()+o.getW())  )
+	  if(  (xPos>o.getX()&&xPos<o.getX()+o.getW())) //|| (xPos+width>o.getX()&&xPos+width<o.getX()+o.getW())  )
 	  {
 		if (yPos+height>=o.getY())
 		{
