@@ -110,14 +110,17 @@ public class Player extends ColidableObject{
 	return color;
   }
   public void getPoint(Player p){
-	if (speed>p.getS())
-		score+=1;
+	if (speed>p.getS()){
+		score++;
+	}
   }
 
   public void bump(Player p){
 	if (didCollideLeft(p)){
 		bounce("right");
+		p.bounce("left");
 		getPoint(p);
+		score++;
 		//System.out.println(score);
 	}
 	//if (didCollideRight(p)){
@@ -127,7 +130,9 @@ public class Player extends ColidableObject{
 	//}
 	if(didCollideTop(p)){
 		bounce("down");
+		p.bounce("up");
 		getPoint(p);
+		score++;
 		//System.out.println(score);
 	}
 	//if (didCollideBot(p)){
