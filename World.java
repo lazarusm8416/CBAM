@@ -159,12 +159,7 @@ public class World extends Canvas implements KeyListener, Runnable
 	  score = player.getScore();
 	  saveScore();
 	  
-	  //client.draw();
-	  for (DrawPlayer pl : client.getPlayers()) {
-		pl.bump(player);
-		window.setColor(pl.getC());
-		window.fillRect(pl.getX(),pl.getY(),pl.getW(),pl.getH());
-	  }
+	  client.draw();
 	  twoDGraph.drawImage(back, null, 0, 0);
   }
 
