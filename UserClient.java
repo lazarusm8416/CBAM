@@ -101,7 +101,9 @@ public class UserClient implements Runnable {
 	public String getName() {
 		return name;
 	}
-
+	public List<DrawPlayer> getPlayers(){
+		return players;
+	}
 	/*public static void main(String[] args) throws IOException {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Enter a Hostname Address: ");
