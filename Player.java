@@ -20,10 +20,10 @@ public class Player extends ColidableObject{
 	this(0,0,10,10,1,null,0);
 	try{
 		URL url = getClass().getResource("car.jpg");
-	    image = ImageIO.read(url);
-		}
-		catch(Exception e){
-		}
+		image = ImageIO.read(url);
+	}
+	catch(Exception e){
+	}
   }
 
 
@@ -32,20 +32,20 @@ public class Player extends ColidableObject{
 	this (x,y,10,10,1,null,0);
 	try{
 		URL url = getClass().getResource("car.jpg");
-	    image = ImageIO.read(url);
-		}
-		catch(Exception e){
-		}
+		image = ImageIO.read(url);
+	}
+	catch(Exception e){
+	}
   }
 
   public Player (int x, int y, int s){
 	this (x,y,10,10,s,null,0);
 	try{
 		URL url = getClass().getResource("car.jpg");
-	    image = ImageIO.read(url);
-		}
-		catch(Exception e){
-		}
+		image = ImageIO.read(url);
+	}
+	catch(Exception e){
+	}
   }
   
   public Player(int x, int y, int w, int h, int s, UserClient client, int sc)
@@ -57,10 +57,10 @@ public class Player extends ColidableObject{
 	color = rColor();
 	try{
 		URL url = getClass().getResource("car.jpg");
-	    image = ImageIO.read(url);
-		}
-		catch(Exception e){
-		}
+		image = ImageIO.read(url);
+	}
+	catch(Exception e){
+	}
 	score = sc;
   }
 
@@ -81,12 +81,12 @@ public class Player extends ColidableObject{
 	
   public void setClient(UserClient client)
   {
-    this.client = client;
+  	  this.client = client;
   }
 	
   public int getS()
   {
-	return speed;
+	  return speed;
   }
   
 
