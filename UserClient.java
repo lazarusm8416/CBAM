@@ -16,6 +16,7 @@ public class UserClient implements Runnable {
 	private String name;
 	private Graphics window;
 	private List<DrawPlayer> players;
+	private Player player;
 
 	public Graphics getWindow() {
 		return window;
@@ -23,7 +24,8 @@ public class UserClient implements Runnable {
 
 	public void draw() {
 		for (DrawPlayer pl : players) {
-			pl.bump(World.getPlayer());
+			player = World.getPlayer();
+			player.bump(pl);
 			window.setColor(pl.getC());
 			window.fillRect(pl.getX(),pl.getY(),pl.getW(),pl.getH());
 		}
