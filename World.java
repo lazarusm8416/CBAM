@@ -48,7 +48,7 @@ public class World extends Canvas implements KeyListener, Runnable
 			oos.writeObject(score);
 			oos.flush();
 			oos.close();
-			System.out.println("yay : " + score);
+			//System.out.println("yay : " + score);
 		}
 		
 		catch(IOException ex) 
