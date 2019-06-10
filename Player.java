@@ -115,7 +115,6 @@ public class Player extends ColidableObject{
   }
 
   public void bump(Player p){
-	getPoint(p);
 	if (didCollideLeft(p)){
 		bounce("right");
 		getPoint(p);

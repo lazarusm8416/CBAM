@@ -7,7 +7,7 @@ public class DrawPlayer extends Player{
     private Color color;
 
     public DrawPlayer(int x, int y, String name) {
-        super(x,y,30,30,3,null,0);
+        super(x,y,25,25,3,null,0);
         this.name = name;
         color=rColor();
     }
